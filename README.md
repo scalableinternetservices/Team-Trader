@@ -4,6 +4,9 @@
 [![Code Climate](https://codeclimate.com/github/scalableinternetservices/Team-Trader/badges/gpa.svg)](https://codeclimate.com/github/scalableinternetservices/Team-Trader)
 [![Pivotal Tracker](http://img.shields.io/badge/Pivotal-Tracker-blue.svg)](https://www.pivotaltracker.com/n/projects/1445314)  
 
+##Pivotal Tracker Link
+[Pivotal](https://www.pivotaltracker.com/n/projects/1445314)
+
 ## Project Description
 Trader is a web service for looking up smart stock trading indicators using other online web services. Basically, the users will be able to see stock trends over the week
 and see how it correlated with the moving stock prices. The users can either choose to correlate indiviudal US stocks or correlated indices like Dow Jones Industrial Average.
