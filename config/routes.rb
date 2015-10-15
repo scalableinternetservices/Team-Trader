@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charts/PLChart'
   get 'google_trends_strategy/index'
   get 'google_trends_strategy/show'
 
