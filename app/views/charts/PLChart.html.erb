@@ -14,8 +14,9 @@
 
 	<script>
 		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+        var labels = <%= @labels.to_json.html_safe %>
 		var lineChartData = {
-			labels : ["2004","2005","2006","2007","2008","2009","2010","2011"],
+			labels : labels,
 			datasets : [
 				{
 					label: "My First dataset",
@@ -25,19 +26,19 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
-				},
-				{
-					label: "My Second dataset",
-					fillColor : "rgba(151,187,205,0.2)",
-					strokeColor : "rgba(151,187,205,1)",
-					pointColor : "rgba(151,187,205,1)",
-					pointStrokeColor : "#fff",
-					pointHighlightFill : "#fff",
-					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
+                    data: <%= @values %>
+//					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
 				}
+//				{
+//					label: "My Second dataset",
+//					fillColor : "rgba(151,187,205,0.2)",
+//					strokeColor : "rgba(151,187,205,1)",
+//					pointColor : "rgba(151,187,205,1)",
+//					pointStrokeColor : "#fff",
+//					pointHighlightFill : "#fff",
+//					pointHighlightStroke : "rgba(151,187,205,1)",
+//					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
+//				}
 			]
 
 		}
