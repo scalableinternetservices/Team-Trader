@@ -1,0 +1,2 @@
+module GoogleTrendsStrategyHelper
+end
