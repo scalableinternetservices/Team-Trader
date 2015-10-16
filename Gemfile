@@ -30,8 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem "rest-client"
-# Use puma as the app server
+gem 'rest-client'
+#Use puma as the app server
 gem 'puma'
 
 # Use Capistrano for deployment
@@ -39,7 +39,7 @@ gem 'puma'
 
 gem 'tzinfo-data' #needed for windows
 
-gem 'rest-client', :git => 'https://github.com/rest-client/rest-client.git'
+# gem 'rest-client', :git => 'https://github.com/rest-client/rest-client.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

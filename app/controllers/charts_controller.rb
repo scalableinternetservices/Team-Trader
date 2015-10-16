@@ -12,6 +12,7 @@ class ChartsController < ApplicationController
     end_date = params[:end_date]
     url = "https://www.quandl.com/api/v3/datasets/BCB/UDJIAD1.json"
     params = {:params => {'start_date'=> start_date, 'end_date'=> end_date}}
+    fresh_when([params])
     result = RestClient.get(url,params)
     @result_json = JSON.parse(result)
     @result_json = @result_json['dataset']['data']
