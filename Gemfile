@@ -39,8 +39,6 @@ gem 'puma'
 
 gem 'tzinfo-data' #needed for windows
 
-gem 'rest-client', :git => 'https://github.com/rest-client/rest-client.git'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
