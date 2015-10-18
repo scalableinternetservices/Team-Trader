@@ -26,5 +26,11 @@ class QuotesController < ApplicationController
         @values.insert(0,val[1])
       end
   
-      return @labels, @values
-    end
+      @stock_description = stock_ticker
+      @start = start_date
+      @end = end_date
+  
+      return @labels, @values, @stock_description
+ end
+ 
+ end
