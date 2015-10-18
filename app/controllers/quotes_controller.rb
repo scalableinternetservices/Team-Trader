@@ -1,12 +1,36 @@
 require 'rest-client'
+require 'json'
 
 class QuotesController < ApplicationController
   
-  def getHistoricalData()
-    stock_ticker ="YHOO"
-    end_date = "2015-02-18"
-    start_date ="2014-02-11"
-    response = RestClient.get 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.historicaldata%20where%20symbol%20%3D%20%22'+stock_ticker+'%22%20and%20startDate%20%3D%20%22'+start_date+'%22%20and%20endDate%20%3D%20%22'+end_date+'%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback='
-    @output = response.body
-  end
-end
+  def getHistoricalData
+   
+      source_api = 'YAHOO'
+      stock_ticker =params[:ticker]
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      
+      url = "https://www.quandl.com/api/v3/datasets/#{source_api}/#{stock_ticker}.json"
+          
+      params = {:params => {'ticker'=> stock_ticker, 'start_date'=> start_date, 'end_date'=> end_date}}
+      fresh_when([params])
+      result = RestClient.get(url,params)
+      @result_json = JSON.parse(result)
+      @result_json = @result_json['dataset']['data']
+  
+      @labels = Array.new
+      @values = Array.new
+  
+      @result_json.each do |val|
+        @labels.insert(0,val[0])
+        @values.insert(0,val[1])
+      end
+  
+      @stock_description = stock_ticker
+      @start = start_date
+      @end = end_date
+  
+      return @labels, @values, @stock_description
+ end
+ 
+ end

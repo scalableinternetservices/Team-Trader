@@ -25,7 +25,7 @@ class ChartsController < ApplicationController
       @labels.insert(0,val[0])
       @values.insert(0,val[1])
     end
-
     return @labels, @values
+    
   end
 end

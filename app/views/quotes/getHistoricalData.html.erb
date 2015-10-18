@@ -1,2 +1,102 @@
-<h1>Quotes#getHistoricalData</h1>
-<p>Value = <%= @output%></p>
+<!doctype html>
+<html>
+	<head>
+		<title>Stock Quotes Chart</title>
+		<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="quotes.scss" rel="stylesheet">
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="stock_template">
+				<h1><%= @stock_description %></h1>
+				<p class="lead">
+					|Open Price:|Close Price:|Highest Price:|Lowest Price:|Volume:|Date:|
+				</p>
+				<p>
+					Querying from <%= @start %> to <%= @end%>
+				</p>
+
+				
+			</div>
+		</div>
+
+		<div style=" border-style: solid;width:800px; margin:0 auto;">
+			<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">1d</a>
+						</li>
+						<li>
+							<a href="#">1w</a>
+						</li>
+						<li>
+							<a href="#">1m</a>
+						</li>
+						<li>
+							<a href="#">1y</a>
+						</li>
+					</ul>
+
+				</div>
+
+			<div>
+				<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="../../dist/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+		<script>
+			var randomScalingFactor = function() {
+				return Math.round(Math.random() * 100)
+			};
+			var labels = 
+<%= @labels.to_json.html_safe %>
+	var lineChartData = {
+labels : labels,
+datasets : [
+{
+label: "My First dataset",
+fillColor : "rgba(220,220,220,0.2)",
+strokeColor : "rgba(220,220,220,1)",
+pointColor : "rgba(220,220,220,1)",
+pointStrokeColor : "#fff",
+pointHighlightFill : "#fff",
+pointHighlightStroke : "rgba(220,220,220,1)",
+data: <%= @values %>
+	//					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
+	}
+	//				{
+	//					label: "My Second dataset",
+	//					fillColor : "rgba(151,187,205,0.2)",
+	//					strokeColor : "rgba(151,187,205,1)",
+	//					pointColor : "rgba(151,187,205,1)",
+	//					pointStrokeColor : "#fff",
+	//					pointHighlightFill : "#fff",
+	//					pointHighlightStroke : "rgba(151,187,205,1)",
+	//					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
+	//				}
+	]
+
+	}
+
+	window.onload = function() {
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive : true,
+			bezierCurve : false,
+			pointDotRadius : 3,
+			scaleShowGridLines : false
+		});
+	}
+
+		</script>
+	</body>
+</html>
