@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/pages/:page" => "pages#show"
+
   get 'volume_chart/index'
 
   get 'charts/PLChart'
