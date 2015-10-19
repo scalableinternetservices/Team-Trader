@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'google_trends_strategy#index'
+   root to: 'application#redirect'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
