@@ -5,7 +5,6 @@ end
 
 class GoogleTrends
      
-     RestClient.log = 'a_log_file.log'
   def self.getDaily(term) 
     get(term, 'today+3-m')
   end

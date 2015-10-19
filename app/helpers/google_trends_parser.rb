@@ -1,5 +1,3 @@
-require 'json'
-
 class GoogleTrendsParser
   
   def self.parse(data)
@@ -22,13 +20,7 @@ class GoogleTrendsParser
     hash
     
   end
-  
-  private
-  
-  def add_to_hash(stripped)
     
-  end
-  
   private
   
   def strip(data)
