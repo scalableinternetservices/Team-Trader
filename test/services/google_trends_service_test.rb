@@ -3,11 +3,11 @@ require 'test_helper'
 class GoogleTrendsTest < ActiveSupport::TestCase
   
   def test_daily_success
-    #result =  GoogleTrends.getDaily('asdf')
+    #result =  GoogleTrendsService.getDaily('asdf')
   end
   
   def test_weekly_success
-    #result = GoogleTrends.getWeekly('asdf')
+    #result = GoogleTrendsService.getWeekly('asdf')
   end
   
 end
