@@ -3,7 +3,7 @@ require 'rest-client'
 class APIError < StandardError
 end
 
-class GoogleTrends
+class GoogleTrendsService
      
   def self.getDaily(term) 
     get(term, 'today+3-m')
