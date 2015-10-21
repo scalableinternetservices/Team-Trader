@@ -12,7 +12,7 @@ class GoogleTrendsParser
       d = slice[0].sub('\u','')
       d = Date.parse d
       begin 
-        hash[d] = Integer(slice[1])
+        hash[d.to_s] = Integer(slice[1])
       rescue ArgumentError, TypeError
         next
       end
