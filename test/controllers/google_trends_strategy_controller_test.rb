@@ -7,7 +7,9 @@ class GoogleTrendsStrategyControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    hash = {:start_date=>'2014-04-20', :end_date=>'2014-07-05', :collapse => 'weekly', :ticker => 'INDEX_DJI'}
+        # start_date=2014-04-20&end_date=2014-07-10&collapse=weekly&ticker=INDEX_DJI
+    get(:show, hash)
     assert_response :success
   end
 
