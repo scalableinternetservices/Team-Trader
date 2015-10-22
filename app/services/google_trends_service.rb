@@ -6,11 +6,11 @@ end
 class GoogleTrendsService
   class <<self
     def getDaily(term)
-      get(term, 'today+3-m')
+      getMonths(term, 3)
     end
 
     def getWeekly(term)
-      get(term, 'today+36-m')
+      get(term, 36)
     end
     
     def getMonths(term, months)
