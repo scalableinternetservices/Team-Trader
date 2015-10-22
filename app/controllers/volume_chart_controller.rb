@@ -2,17 +2,14 @@ class VolumeChartController < ApplicationController
   require 'rest-client'
   require 'json'
   require 'google_trends_service'
+  require 'quandl_quote_service'
+
   def index
   	# configure
-    
-	  start_date = params[:start_date]
-    end_date = params[:end_date]
-    url = "https://www.quandl.com/api/v3/datasets/YAHOO/INDEX_DJI.json"
-    params = {:params => {'start_date'=> start_date, 'end_date'=> end_date}}
-    fresh_when([params])
-    result = RestClient.get(url,params)
-    @result_json = JSON.parse(result)
+
+    @result_json = QuandlQuoteService.getHistoricalData(params)
     @result_json = @result_json['dataset']['data']
+    puts @result_json
 
     # @trends = GoogleTrendsService.getDaily("debt")
 

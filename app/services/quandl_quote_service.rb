@@ -13,7 +13,7 @@ class QuandlQuoteService
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> collapse, 'api_key'=>api_key}}
 
       result = RestClient.get(url(stock_symbol),params)
-      parse(result)      
+      return JSON.parse(result)      
     end
 
     def getData(stock_symbol, start_date, end_date, collapse='weekly')
