@@ -1,6 +1,7 @@
 
 	
 	<body>
+		<h1 style="text-align: center;"> Google Trend (Pink) /Buy & Hold (Blue) </h1>
 		<div style="width:800px; margin:0 auto;">
 			<div>
 				<canvas id="canvas" height="400" width="600"></canvas>
@@ -22,7 +23,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(220,220,220,1)",
-                    data: <%= @values %>
+                    data: <%= @gt_ret %>
 //					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
 				},
 				{
@@ -33,7 +34,7 @@
 					pointStrokeColor : "#fff",
 					pointHighlightFill : "#fff",
 					pointHighlightStroke : "rgba(151,187,205,1)",
-					data: <%= @values2 %>
+					data: <%= @bh_ret %>
 //					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
 				}
 			]
