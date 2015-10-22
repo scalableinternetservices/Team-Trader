@@ -28,15 +28,17 @@ class QuandlQuoteService
       result_json = JSON.parse(data)
       result_json = result_json['dataset']['data']
 
-      labels = Array.new
-      values = Array.new
-
+      dates = Array.new
+      open = Array.new
+      close = Array.new
+      
       result_json.each do |val|
-        labels.insert(0,val[0])
-        values.insert(0,val[1])
+        dates.insert(0,val[0])
+        open.insert(0,val[1])
+        close.insert(0,val[3])
       end
 
-      return labels, values
+      return dates, open, close
     end
 
     def source_api
