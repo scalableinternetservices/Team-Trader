@@ -1,4 +1,4 @@
-require '../test_helper'
+require 'test_helper'
 
 class RailsExtensionsTest < ActiveSupport::TestCase
   def test_array_mean
