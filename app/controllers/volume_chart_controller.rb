@@ -5,8 +5,13 @@ class VolumeChartController < ApplicationController
   require 'quandl_quote_service'
 
   def index
+  end
+  
+  def show
   	# configure
-
+    params[:start_date] = "2014-6-20"
+    params[:end_date] = "2014-9-20"
+    puts params
     @result_json = QuandlQuoteService.getHistoricalData(params)
     @result_json = @result_json['dataset']['data']
     puts @result_json

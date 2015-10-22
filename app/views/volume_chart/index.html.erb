@@ -1,88 +1,21 @@
-<!doctype html>
-<html>
-	<head>
-		<title>Volume/Trend Correlation Chart</title>
-		
-	</head>
-	<body>
-		<div style="width:800px; margin:0 auto;">
-			<h1 style="text-align: center;"> Google Trend/Volume Charts </h1>
-			<div>
-
-				<canvas id="canvas" height="400" width="600"></canvas>
-				<canvas id="canvas2" height="100" width="350"></canvas>
+<div class="container">
+	<div class="starter-template">
+		<h1>Google Trends Volume Correlation</h1>
+		<p class="lead">
+			Use Google Trends Terms to predict trading volume.
+		</p>
+		<form class="form-max-width" action="show">
+			<div class="form-group">
+				<label class="control-label" for="trend_term">Google Trends Term:</label>
+				<input required type="text" id="trend_term" name="trend_term" class="form-control">
 			</div>
+			<div class="form-group">
+				<label class="control-label" for="stock_symbol">Stock Symbol:</label>
+				<input required type="text" id="stock_symbol" name="ticker" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">
+				Submit
+			</button>
+		</form>
 	</div>
-
-
-	<script>
-		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-        var labels = <%= @labels.to_json.html_safe %>
-        var vals = <%= @values.to_json.html_safe %>
-        // var trend_vals = <%= @trend_values.to_json.html_safe %>
-        var trend_vals = [44, 46, 50, 52, 53, 52, 56, 62, 57, 58, 65, 52, 48, 49, 47, 46, 46, 46, 45, 44, 45, 45, 46, 45, 47, 48, 49, 50, 54, 56, 55, 55, 56, 58, 60, 61, 62, 62, 64, 63, 68, 71, 72, 73, 78, 79, 85, 100, 53, 52, 53, 52, 53, 53, 56, 59, 57, 60, 59, 59, 57, 58, 61, 60]
-        var emptylabels=[]
-        console.log(trend_vals.length)
-        console.log(vals.length)
-        for (i=0; i<trend_vals.length; i++)
-        {
-        	emptylabels.push('')
-        }
-		var lineChartData = {
-			labels : emptylabels,
-			datasets : [
-				{
-					label: "My First dataset",
-					fillColor : "rgba(220,220,220,0.2)",
-					strokeColor : "rgba(220,220,220,1)",
-					pointColor : "rgba(220,220,220,1)",
-					pointStrokeColor : "#fff",
-					pointHighlightFill : "#fff",
-					pointHighlightStroke : "rgba(220,220,220,1)",
-                    data: trend_vals
-				}
-			]
-
-		}
-		var barChartData = {
-			labels : labels,
-			datasets : [
-				{
-					label: "My Second dataset",
-					fillColor : "rgba(151,187,205,0.2)",
-					strokeColor : "rgba(151,187,205,1)",
-					pointColor : "rgba(151,187,205,1)",
-					pointStrokeColor : "#fff",
-					pointHighlightFill : "#fff",
-					pointHighlightStroke : "rgba(151,187,205,1)",
-					data : vals
-				}
-			]
-
-		}
-
-	window.onload = function(){
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myLine = new Chart(ctx).Line(lineChartData, {
-			responsive: true,
-			bezierCurve: false,
-			pointDotRadius : 3,
-			scaleShowGridLines : false,
-			scaleLabel: function (valuePayload) {
-    			return '';
-			}
-		});
-		var ctx = document.getElementById("canvas2").getContext("2d");
-		window.myLine = new Chart(ctx).Bar(barChartData, {
-			responsive: true,
-			scaleShowGridLines : false,
-			scaleLabel: function (valuePayload) {
-    			return '';
-			}
-		});
-	}
-
-
-	</script>
-	</body>
-</html>
+</div><!-- /.container -->

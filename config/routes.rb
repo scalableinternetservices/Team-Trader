@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "/pages/:page" => "pages#show"
 
   get 'volume_chart/index'
+  get 'volume_chart/show'
 
   get 'charts/PLChart'
   get 'google_trends_strategy/index'
