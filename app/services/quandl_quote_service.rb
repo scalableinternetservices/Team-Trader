@@ -5,14 +5,14 @@ class QuandlQuoteService
   class <<self
     
     def getHistoricalData(params)
-      stock_ticker =params[:ticker]
+      stock_symbol =params[:ticker]
       start_date = params[:start_date]
       end_date = params[:end_date]
       collapse = params[:collapse]
       
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> collapse, 'api_key'=>api_key}}
 
-      result = RestClient.get(url(stock_ticker),params)
+      result = RestClient.get(url(stock_symbol),params)
       parse(result)      
     end
 
