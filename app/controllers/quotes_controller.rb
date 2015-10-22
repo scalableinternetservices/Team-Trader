@@ -11,7 +11,8 @@ class QuotesController < ApplicationController
     @labels = returnArray[0]
     @values = returnArray[1]
     @stock_description = params[:ticker]
-    return @labels, @values, @stock_description
+    
+     return @labels, @values, @stock_description
   end
 
  
