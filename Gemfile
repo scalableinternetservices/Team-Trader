@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 gem 'rest-client'
 #Use puma as the app server
-gem 'puma'
+#gem 'puma'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
