@@ -1,6 +1,3 @@
-require 'rest-client'
-require 'json'
-
 class QuandlQuoteService
   class <<self
     
@@ -16,31 +13,26 @@ class QuandlQuoteService
       return JSON.parse(result)      
     end
 
-    def getData(stock_symbol, start_date, end_date, collapse='weekly')
-      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> collapse, 'api_key'=>api_key}}
-      result = RestClient.get(url(stock_symbol),params)
-      parse(result)
+    def getDateCloseHash(stock_symbol, start_date, end_date)
+      data = getDataArray(stock_symbol, start_date, end_date)
+      
+      hash = {}
+      data.each do |val|
+        hash[val[0]] = val[4]
+      end       
+      hash
     end
     
     private
     
-    def parse(data)
-      result_json = JSON.parse(data)
-      result_json = result_json['dataset']['data']
-
-      dates = Array.new
-      open = Array.new
-      close = Array.new
-      
-      result_json.each do |val|
-        dates.insert(0,val[0])
-        open.insert(0,val[1])
-        close.insert(0,val[3])
-      end
-
-      return dates, open, close
+    def getDataArray(stock_symbol, start_date, end_date)
+      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key}}
+      result = RestClient.get(url(stock_symbol),params)
+      puts result
+      json = JSON.parse(result)
+      data = json['dataset']['data']
     end
-
+    
     def source_api
       'YAHOO'
     end
