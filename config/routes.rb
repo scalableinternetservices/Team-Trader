@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  get 'company_list/getHints'
+
   get "/pages/:page" => "pages#show"
 
   get 'volume_chart/index'
   get 'volume_chart/show'
 
   get 'charts/PLChart'
+
   get 'google_trends_strategy/index'
   get 'google_trends_strategy/show'
-
   get 'quotes/getHistoricalData'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -18,4 +18,15 @@
 			</button>
 		</form>
 	</div>
+
 </div><!-- /.container -->
+
+<script>
+   $(document).ready(function(){
+      $('#stock_symbol').autocomplete({
+          serviceUrl: '/company_list/getHints',
+          deferRequestBy: 1000
+      });
+  });
+
+</script>
