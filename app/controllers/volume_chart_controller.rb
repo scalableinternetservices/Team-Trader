@@ -4,10 +4,9 @@ class VolumeChartController < ApplicationController
 
   def index
   end
-  
-  def show
 
-    stock_symbol = params[:ticker].downcase
+  def updateSearchHistory
+    stock_symbol = params[:stock_symbol].downcase
     trend_term = params[:trend_term].downcase
 
     if StockSearchHistory.where(stock: stock_symbol).empty?
@@ -25,6 +24,11 @@ class VolumeChartController < ApplicationController
       query_term.increment!(:count)
       query_term.save
     end
+  end
+  
+  def show
+
+    updateSearchHistory()
 
   	# configure
     params[:start_date] = "2014-6-20"
