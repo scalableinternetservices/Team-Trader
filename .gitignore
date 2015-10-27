@@ -34,3 +34,9 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# Mac
+*.DS_Store
+
+# DB
+*.sqlite3
