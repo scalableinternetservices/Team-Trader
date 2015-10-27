@@ -29,7 +29,7 @@ class GoogleTrendsStrategyController < ApplicationController
     updateSearchHistory()
 
     today = Date.today
-    beginning = today-1095#124#1095
+    beginning = today-400#124#1095
     start_date = beginning.to_s#'2015-07-03'
     end_date = today.to_s#'2015-09-30'
 
