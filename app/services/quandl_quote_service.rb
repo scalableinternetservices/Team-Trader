@@ -2,7 +2,7 @@ class QuandlQuoteService
   class <<self
     
     def getHistoricalData(params)
-      stock_symbol =params[:ticker]
+      stock_symbol =params[:stock_symbol]
       start_date = params[:start_date]
       end_date = params[:end_date]
       collapse = params[:collapse]
