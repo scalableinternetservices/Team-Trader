@@ -5,9 +5,8 @@ require 'quandl_quote_service'
 class QuotesController < ApplicationController
 
   def getHistoricalData
-    # fresh_when(:params)
-    returnArray = QuandlQuoteService.getHistoricalData params
-    #returnArray = QuandlQuoteService.getData()
+
+    returnArray = QuandlQuoteService.fetchHistoricalData params
     @labels = returnArray[0]
     @values = returnArray[1]
     @stock_description = params[:ticker]
