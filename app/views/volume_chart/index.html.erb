@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+</head>
 <div class="container">
 	<div class="starter-template">
 		<h1>Google Trends Volume Correlation</h1>
@@ -18,4 +21,54 @@
 			</button>
 		</form>
 	</div>
+
+	<div class="starter-template">
+		<h4>Popular Searches</h4>
+		<div class="col-md-3 col-xs-offset-3">
+			
+			<table class="pure-table" style="margin-left:25px;">
+			    <thead>
+			        <tr>
+			            <th>ID</th>
+			            <th>Term</th>
+			            <th># Searches</th>
+			        </tr>
+			    </thead>
+
+			    <tbody>
+			    	<% @term_records.each_with_index do |p, index| %>
+			        <tr>
+						  <td><%= index + 1 %></td>
+						  <td><%= p.term %></td>
+						  <td><%= p.count %></td>
+			        </tr>
+			        <% end %>
+			    </tbody>
+			</table>
+		</div>
+
+		<div class="col-md-3">
+		<table class="pure-table" style="margin-left:25px;">
+		    <thead>
+		        <tr>
+		            <th>ID</th>
+		            <th>Stock</th>
+		            <th># Searches</th>
+		        </tr>
+		    </thead>
+
+		    <tbody>
+		    	<% @stock_records.each_with_index do |p, index| %>
+		        <tr>
+					  <td><%= index + 1 %></td>
+					  <td><%= p.stock %></td>
+					  <td><%= p.count %></td>
+		        </tr>
+		        <% end %>
+		    </tbody>
+		</table>
+		</div>
+	</div>
+
 </div><!-- /.container -->
+

@@ -2,10 +2,20 @@ class VolumeChartController < ApplicationController
   require 'rest-client'
   require 'json'
 
-  def index
+  def get_search_history
+    @term_records = TermSearchHistory.all.order('count DESC')
+    @stock_records = StockSearchHistory.all.order('count DESC')
+
+    return @stock_records, @term_records
   end
 
-  def updateSearchHistory
+  def index
+
+    return get_search_history()
+
+  end
+
+  def update_search_history
     stock_symbol = params[:stock_symbol].downcase
     trend_term = params[:trend_term].downcase
 
@@ -28,7 +38,7 @@ class VolumeChartController < ApplicationController
   
   def show
 
-    updateSearchHistory()
+    update_search_history()
 
   	# configure
     params[:start_date] = "2014-6-20"
