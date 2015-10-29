@@ -43,10 +43,9 @@ class VolumeChartController < ApplicationController
   	# configure
     params[:start_date] = "2014-6-20"
     params[:end_date] = "2014-9-20"
-    # puts params
-    @result_json = QuandlQuoteService.getHistoricalData(params)
-    @result_json = @result_json['dataset']['data']
-    # puts @result_json
+
+    @result_data = QuandlQuoteService.getHistoricalData(params)
+    # puts @result_data
 
     # @trends = GoogleTrendsService.getDaily("debt")
 
@@ -55,7 +54,7 @@ class VolumeChartController < ApplicationController
     @trend_labels = Array.new
     @trend_values = Array.new
 
-    @result_json.each do |val|
+    @result_data.each do |val|
       @labels.insert(0,val[0])
       @values.insert(0,val[5])
     end
