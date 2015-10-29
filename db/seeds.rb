@@ -8,8 +8,8 @@
 
 
 #Populate company table after db setup
-require "CSV"
+#require "CSV"
 
-CSV.foreach(Rails.root.join('app','assets','csv','yahoo_stock_list.csv')) do |row|
-  cl = Company.create(code:row[0], name:row[2]);
-end
+#CSV.foreach(Rails.root.join('app','assets','csv','yahoo_stock_list.csv')) do |row|
+#  cl = Company.create(code:row[0], name:row[2]);
+#end
