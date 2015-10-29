@@ -8,8 +8,6 @@ class QuandlQuoteService
       end_date = params[:end_date]
       collapse = params[:collapse]
       
-      puts "Inside the Historical Data Section"
-      puts params
       data = getDataArray(stock_symbol, start_date, end_date)
       return data;
     end
