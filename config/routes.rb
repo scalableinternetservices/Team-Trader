@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'company_list/getHints'
 
   get "/pages/:page" => "pages#show"
