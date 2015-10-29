@@ -1,6 +1,11 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<div class="container">
+  <div class="starter-template">
+    <h2>Log in</h2>
+    <%= devise_error_messages! %>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class=> 'form-max-width'}) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -19,8 +24,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",:class=>'btn btn-primary' %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+  </div>
+</div>
