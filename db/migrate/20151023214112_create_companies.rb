@@ -6,7 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :code, :name
+    #add_foreign_key :code, :name
 
   end
 
