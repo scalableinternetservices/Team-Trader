@@ -47,7 +47,7 @@ class VolumeChartController < ApplicationController
     @result_data = QuandlQuoteService.getHistoricalData(params)
     # puts @result_data
 
-    # @trends = GoogleTrendsService.getDaily("debt")
+    @trends = GoogleTrendsService.getMonths(params[:trend_term], 12)
 
     @labels = Array.new
     @values = Array.new
@@ -59,11 +59,11 @@ class VolumeChartController < ApplicationController
       @values.insert(0,val[5])
     end
 
-    # @trends.each do |key, value|
-    #   if @trend_values.length < @values.length
-    #     @trend_values.insert(0, value)
-    #   end
-    # end
+    @trends.each do |key, value|
+      if @trend_values.length < @values.length
+        @trend_values.insert(0, value)
+      end
+    end
 
     return @labels, @values, @trend_values
   end
