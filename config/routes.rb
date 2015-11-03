@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'portfolio/index'
+
   devise_for :users, controllers:{ sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations' }
 
   get 'company_list/getHints'
