@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'portfolio/index'
 
   devise_for :users, controllers:{ sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations' }
 
@@ -21,6 +20,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root to: 'pages#home'
 
+
+  resources :portfolios do
+    resources :investments
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

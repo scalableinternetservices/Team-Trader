@@ -26,7 +26,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li>
-          <li><%= link_to 'Personal Profile', new_user_session_path %></li>
+          <li><%= link_to 'Personal Profile', portfolios_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, :method=>'DELETE' %></li>
         </li>
       <% else %>
