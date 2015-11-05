@@ -25,9 +25,7 @@ Rails.application.routes.draw do
    root to: 'pages#home'
 
 
-  resources :portfolios do
-    resources :investments
-  end
+  resources :investments
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
