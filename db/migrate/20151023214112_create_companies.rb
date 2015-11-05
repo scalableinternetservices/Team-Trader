@@ -7,7 +7,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.timestamps null: false
     end
     #add_foreign_key :code, :name
-
+    add_index :companies, :name
   end
 
   def self.down
