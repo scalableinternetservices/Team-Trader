@@ -50,6 +50,19 @@ ActiveRecord::Schema.define(version: 20151101000342) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.string   "ticker"
+    t.date     "date"
+    t.float    "open_price"
+    t.float    "highest_price"
+    t.float    "lowest_price"
+    t.float    "close_price"
+    t.float    "volume"
+    t.float    "adj_close"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "term_search_histories", force: :cascade do |t|
     t.string   "term"
     t.integer  "count"

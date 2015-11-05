@@ -40,32 +40,82 @@ class VolumeChartController < ApplicationController
 
     update_search_history()
 
-  	# configure
-    params[:start_date] = "2014-6-20"
-    params[:end_date] = "2014-9-20"
 
-    @result_data = QuandlQuoteService.getHistoricalData(params)
-    # puts @result_data
+    today = Date.today
+    beginning = today-400#124#1095
+    start_date = beginning.to_s#'2015-07-03'
+    end_date = today.to_s#'2015-09-30'
+    params[:start_date] = start_date
+    params[:end_date] = end_date
 
-    @trends = GoogleTrendsService.getMonths(params[:trend_term], 12)
+    @date_close_hash = QuandlQuoteService.getHistoricalVolume(params)
 
-    @labels = Array.new
-    @values = Array.new
-    @trend_labels = Array.new
-    @trend_values = Array.new
+    @trend_data = GoogleTrendsService.getMonths(params[:trend_term], 12)
 
-    @result_data.each do |val|
-      @labels.insert(0,val[0])
-      @values.insert(0,val[5])
-    end
+    @trend_labels = @trend_data.keys
+    @trend_values = @trend_data.values
+    
 
-    @trends.each do |key, value|
-      if @trend_values.length < @values.length
-        @trend_values.insert(0, value)
+    @volume_values = Array.new
+
+    @trend_labels.each_with_index do |val,index|
+      if((index > delta_t) && index<@trend_labels.size)
+        @volume_values.insert(0,week_return_hash(val))
+        # puts ret
       end
     end
 
-    return @labels, @values, @trend_values
+    @trend_labels = @trend_labels.drop(delta_t)
+
+    puts @volume_values
+    puts @trend_data
+
+
+    return @trend_labels, @trend_values, @volume_values
   end
+
+
+  def delta_t
+    3
+  end
+
+  def week_return_hash(saturday)
+    this_week = first_trade_day_this_week(saturday)
+    # next_week = first_trade_day_next_week(saturday)
+    f = @date_close_hash[this_week.to_s]
+    return f
+    # e = @date_close_hash[next_week.to_s]
+    # returns(f,e)
+  end
+  
+  def first_trade_day_this_week(saturday)
+    d = Date.parse saturday
+    d=d+2
+    next_trade_day_hash(d)
+  end
+
+  def next_trade_day_hash(day)#takes in Date
+    while(@date_close_hash[day.to_s] == nil)
+      day +=1
+    end
+    day
+  end
+
+  def get_array_of_relative_search(values)
+    rel = Array.new(values.size,0)
+
+    values.each_with_index do |val, index|
+      if((index >= delta_t) && index!=values.size-1)
+        rel[index] = relative_change_in_search(index, values)
+      end
+    end
+    rel
+  end
+
+  def relative_change_in_search(index, values)
+    m = values[index-delta_t,index-1].mean
+    values[index] - m
+  end
+
 end
 # 
