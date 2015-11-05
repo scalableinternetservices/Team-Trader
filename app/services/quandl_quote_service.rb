@@ -9,7 +9,22 @@ class QuandlQuoteService
       collapse = params[:collapse]
       
       data = getDataArray(stock_symbol, start_date, end_date)
-      return data;
+    end
+
+    #Used for fetching prices of stocks
+    def getHistoricalVolume(params)
+      stock_symbol =params[:stock_symbol]
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      collapse = params[:collapse]
+      
+      data = getDataArray(stock_symbol, start_date, end_date)
+
+      hash = {}
+      data.each do |val|
+        hash[val[0]] = val[5]
+      end
+      return hash;
     end
 
     #Used for fetching prices of stocks
