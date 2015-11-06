@@ -29,6 +29,7 @@ class InvestmentsController < ApplicationController
     livePrice = getLivePrice(investment_params[:ticker])
     @investment.livePrice= livePrice
     @investment.buyingPrice = livePrice
+    @investment.buyingDate = '2015-11-05'
     @investment.overallGain = (livePrice - @investment.buyingPrice)*@investment.quantity
     @investment.totalValue =  livePrice*@investment.quantity
     @investment.totalInvestments =  @investment.buyingPrice*@investment.quantity
