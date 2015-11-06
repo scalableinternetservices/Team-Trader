@@ -6,7 +6,12 @@ class CreateInvestments < ActiveRecord::Migration
       t.integer :quantity
       t.float :buyingPrice
       t.date :buyingDate
-
+      t.float :livePrice
+      t.float :totalInvestments
+      t.float :totalValue
+      t.float :overallGain
+      t.float :overallGainPercent
+      
       t.timestamps null: false
     end
   end

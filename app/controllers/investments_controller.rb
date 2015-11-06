@@ -1,14 +1,16 @@
 require 'quandl_quote_service'
+
 class InvestmentsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @investments = Investment.where(user: current_user)
-    @investments
   end
 
   def getLivePrice(stock_symbol)
-    start_date = Date.new(2015, 11, 04)
-    end_date = Date.new(2015,11,05)
+    
+    start_date = "2015-11-04"
+    end_date = "2015-11-05"
     @result_data = QuandlQuoteService.getDataArray(stock_symbol, start_date, end_date)
 
     @values = Array.new
@@ -21,11 +23,18 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-    params = investment_params
-    live_price =  getLivePrice(params.fetch(:ticker))
-    params.new(buyingPrice:live_price)
-    @investment = current_user.investments.new(investment_params)
 
+    @investment = current_user.investments.new(investment_params)
+    
+    livePrice = getLivePrice(investment_params[:ticker])
+    @investment.livePrice= livePrice
+    @investment.buyingPrice = livePrice
+    @investment.overallGain = (livePrice - @investment.buyingPrice)*@investment.quantity
+    @investment.totalValue =  livePrice*@investment.quantity
+    @investment.totalInvestments =  @investment.buyingPrice*@investment.quantity
+    @investment.overallGainPercent = (@investment.overallGain*100.00)/@investment.totalInvestments
+    
+  
     respond_to do |format|
       if @investment.save
         format.html { redirect_to investments_path, notice: 'Investment was successfully created.' }
@@ -37,20 +46,18 @@ class InvestmentsController < ApplicationController
     end
   end
 
-
   def new
-   @investment = Investment.new
+    @investment = Investment.new
   end
 
   def mock_index
 
-
   end
 
   private
-  def investment_params
-   a = params.require(:investment).permit(:stockName,:ticker,:quantity)
-    a
-  end
 
+  def investment_params
+    params.require(:investment).permit(:stockName,:ticker,:quantity)
+  end
+  
 end
