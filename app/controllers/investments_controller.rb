@@ -9,8 +9,9 @@ class InvestmentsController < ApplicationController
 
   def getLivePrice(stock_symbol)
     
-    start_date = "2015-11-04"
-    end_date = "2015-11-05"
+    start_date = yesterday
+    end_date = current_date
+    
     @result_data = QuandlQuoteService.getDataArray(stock_symbol, start_date, end_date)
 
     @values = Array.new
@@ -29,11 +30,11 @@ class InvestmentsController < ApplicationController
     livePrice = getLivePrice(investment_params[:ticker])
     @investment.livePrice= livePrice
     @investment.buyingPrice = livePrice
-    @investment.buyingDate = '2015-11-05'
+    @investment.buyingDate = current_date
     @investment.overallGain = (livePrice - @investment.buyingPrice)*@investment.quantity
     @investment.totalValue =  livePrice*@investment.quantity
     @investment.totalInvestments =  @investment.buyingPrice*@investment.quantity
-    @investment.overallGainPercent = (@investment.overallGain*100.00)/@investment.totalInvestments
+    @investment.overallGainPercent = (@investment.overallGain*hundred)/@investment.totalInvestments
     
   
     respond_to do |format|
@@ -61,4 +62,18 @@ class InvestmentsController < ApplicationController
     params.require(:investment).permit(:stockName,:ticker,:quantity)
   end
   
+  def current_date
+    time = Time.new
+    return time.strftime("%Y-%m-%d")
+  end
+  
+  def yesterday
+    time = Time.now - 1.day
+    return time.strftime("%Y-%m-%d")
+  end
+  
+  def hundred
+    100.00
+  end
+    
 end
