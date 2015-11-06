@@ -60,13 +60,13 @@
                 <!-- Lets dynamically add the labels red or green here -->
                 <td><%= investment.stockName %> (<%= investment.ticker %>)</td>
                 <td><%= investment.buyingPrice %></td>
-                <td><%= investment.buyingPrice %></td>
+                <td><%= investment.livePrice %></td>
                 <td><%= investment.buyingDate  %></td>
                 <td><%= investment.quantity  %></td>
-                <td><%= 0  %></td>
-                <td><%= 0  %></td>
-                <td><%= 0  %></td>
-                <td><%= 0  %></td>
+                <td><%= investment.overallGain  %></td>
+                <td><%= investment.overallGainPercent  %></td>
+                <td><%= investment.totalInvestments  %></td>
+                <td><%= investment.totalValue  %></td>
               </tr>
           <% end %>
 
