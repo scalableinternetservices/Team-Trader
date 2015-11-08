@@ -1,4 +1,6 @@
 class Users::UnlocksController < Devise::UnlocksController
+  protect_from_forgery
+  skip_before_action :verify_authenticity_token
   # GET /resource/unlock/new
   # def new
   #   super
