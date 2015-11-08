@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   get 'google_trends_strategy/show'
   get 'quotes/getHistoricalData'
 
+  get 'google_trends_strategy/get_stock_search_history'
+  get 'google_trends_strategy/get_term_search_history'
 
   resources :investments
-
 
   #Deprecated
   get 'charts/PLChart'
