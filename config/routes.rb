@@ -1,27 +1,35 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers:{ sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations' }
+  root to: 'pages#home'
+
+  devise_for :users, controllers:{ sessions: 'users/sessions',
+                                   passwords: 'users/passwords',
+                                   registrations: 'users/registrations',
+                                   confirmations:'users/confirmations'}
 
   get 'company_list/getHints'
 
-  get "/pages/:page" => "pages#show"
 
   get 'volume_chart/index'
   get 'volume_chart/show'
 
-  get 'charts/PLChart'
 
   get 'google_trends_strategy/index'
   get 'google_trends_strategy/show'
   get 'quotes/getHistoricalData'
+
+
+  resources :investments
+
+
+  #Deprecated
+  get 'charts/PLChart'
+  get "/pages/:page" => "pages#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root to: 'pages#home'
-
-
-  resources :investments
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
