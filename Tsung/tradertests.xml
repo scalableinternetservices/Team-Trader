@@ -34,8 +34,8 @@
       <!-- Hit the homepage -->
       <transaction name = "index">
         <request>
-        	<dyn_variable name="home_css"re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
-        	<dyn_variable name="home_js"re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
+        	<dyn_variable name="home_css" re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
+        	<dyn_variable name="home_js" re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
           <http url='/' version='1.1' method='GET'></http>
         </request>
         <request  subst="true">
@@ -67,8 +67,8 @@
       <!-- Hit Google Trends Strategy page -->
       <transaction name = "google_trends_home">
         <request>
-        	<dyn_variable name="gts_css"re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
-        	<dyn_variable name="gts_js"re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
+        	<dyn_variable name="gts_css" re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
+        	<dyn_variable name="gts_js" re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
 			<http url='/google_trends_strategy/index' version='1.1' method='GET'></http>
         </request>
         <request>
