@@ -9,17 +9,30 @@ class InvestmentsController < ApplicationController
 
   def getLivePrice(stock_symbol)
     
-    start_date = yesterday
-    end_date = current_date
+    @result_data = nil
+    Integer i =0;
     
-    @result_data = QuandlQuoteService.getDataArray(stock_symbol, start_date, end_date)
-
+    while @result_data == nil do
+      
+      if i >=3
+        break;
+      end
+      start_date = date(i+1)
+      end_date = date(i)
+      @result_data = QuandlQuoteService.getDataArray(stock_symbol, start_date, end_date)
+      
+    end
+    
     @values = Array.new
     @result_data.each do |val|
       @values.insert(0,val[4])
     end
-    puts @values
-    return @values[0]
+
+    if @values[0] !=nil
+      return @values[0]
+    else
+      return 0.0
+    end
 
   end
 
@@ -67,8 +80,13 @@ class InvestmentsController < ApplicationController
     return time.strftime("%Y-%m-%d")
   end
   
-  def yesterday
-    time = Time.now - 1.day
+  def date (offset_days) 
+    time = Time.now
+    
+    if(offset_days > 0 )
+      time = time - offset_days.day
+     end
+     
     return time.strftime("%Y-%m-%d")
   end
   
