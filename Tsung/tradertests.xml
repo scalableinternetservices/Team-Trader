@@ -34,13 +34,15 @@
       <!-- Hit the homepage -->
       <transaction name = "index">
         <request>
+        	<dyn_variable name="home_css"re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
+        	<dyn_variable name="home_js"re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
           <http url='/' version='1.1' method='GET'></http>
         </request>
-        <request>
-          <http url='/assets/application-8ec0616b3bcb58ddba6a2f6da1c9a49c2bb90dd609d308a4292d7a03051906df.css' version='1.1' method='GET'></http>
+        <request  subst="true">
+          <http url='%%home_css%%.css' version='1.1' method='GET'></http>
         </request>
-        <request>
-          <http url='/assets/application-0fb677754c765ecd493bee7d3bd74039b57cf747c77b64044d88005006807d52.js' version='1.1' method='GET'></http>
+        <request  subst="true">
+          <http url='%%home_js%%.js' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' version='1.1' method='GET'></http>
@@ -65,13 +67,15 @@
       <!-- Hit Google Trends Strategy page -->
       <transaction name = "google_trends_home">
         <request>
-          <http url='/google_trends_strategy/index' version='1.1' method='GET'></http>
+        	<dyn_variable name="gts_css"re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
+        	<dyn_variable name="gts_js"re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/>
+			<http url='/google_trends_strategy/index' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-8ec0616b3bcb58ddba6a2f6da1c9a49c2bb90dd609d308a4292d7a03051906df.css' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-0fb677754c765ecd493bee7d3bd74039b57cf747c77b64044d88005006807d52.js' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
@@ -90,10 +94,10 @@
           <http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=aapl' version='1.1' method='POST'></http>
         </request>
         <request>
-          <http url='/assets/application-8ec0616b3bcb58ddba6a2f6da1c9a49c2bb90dd609d308a4292d7a03051906df.css' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-0fb677754c765ecd493bee7d3bd74039b57cf747c77b64044d88005006807d52.js' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
@@ -109,10 +113,10 @@
           <http url='/volume_chart/index' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-8ec0616b3bcb58ddba6a2f6da1c9a49c2bb90dd609d308a4292d7a03051906df.css' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-0fb677754c765ecd493bee7d3bd74039b57cf747c77b64044d88005006807d52.js' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
@@ -131,10 +135,10 @@
           <http url='/volume_chart/show?trend_term=debt+&amp;stock_symbol=aapl' version='1.1' method='POST'></http>
         </request>
         <request>
-          <http url='/assets/application-8ec0616b3bcb58ddba6a2f6da1c9a49c2bb90dd609d308a4292d7a03051906df.css' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='/assets/application-0fb677754c765ecd493bee7d3bd74039b57cf747c77b64044d88005006807d52.js' version='1.1' method='GET'></http>
+          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
