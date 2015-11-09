@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 style="text-align: center;">Create an investment</h1>
+  <div style="width:800px; margin:0 auto;">
+    <%= form_for(@investment) do |f| %>
+        <% if @investment.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@investment.errors.count, "error") %> prohibited this investment from being saved:</h2>
+
+              <ul>
+                <% @investment.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :stockName %><br>
+          <%= f.text_field :stockName %>
+        </div>
+        <div class="field">
+          <%= f.label :ticker %><br>
+          <%= f.text_field :ticker %>
+        </div>
+        <div class="field">
+          <%= f.label :quantity %><br>
+          <%= f.text_field :quantity %>
+        </div>
+        <div ></div>
+        <div class="actions">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+  </div>
+
+</div>

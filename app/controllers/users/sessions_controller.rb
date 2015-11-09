@@ -1,4 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
+  protect_from_forgery
+  skip_before_action :verify_authenticity_token
 # before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

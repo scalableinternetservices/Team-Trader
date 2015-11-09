@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101000342) do
+ActiveRecord::Schema.define(version: 20151031235712) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "code"
@@ -28,22 +28,12 @@ ActiveRecord::Schema.define(version: 20151101000342) do
     t.integer  "quantity"
     t.float    "buyingPrice"
     t.date     "buyingDate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "portfolio_id"
-  end
-
-  add_index "investments", ["portfolio_id"], name: "index_investments_on_portfolio_id"
-
-  create_table "portfolios", force: :cascade do |t|
-    t.string   "name"
-    t.float    "totalRevenue"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
 
-  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
+  add_index "investments", ["user_id"], name: "index_investments_on_user_id"
 
   create_table "stock_search_histories", force: :cascade do |t|
     t.string   "stock"

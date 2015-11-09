@@ -7,6 +7,20 @@ class GoogleTrendsStrategyController < ApplicationController
     return @stock_records, @term_records
   end
 
+  def get_stock_search_history(limit = 8)
+    @stock_records = StockSearchHistory.all.order('count DESC').take(limit)
+    respond_to do |format|
+      format.json { render json: @stock_records}
+    end
+  end
+
+  def get_term_search_history(limit = 8)
+    @term_records = TermSearchHistory.all.order('count DESC').take(limit)
+    respond_to do |format|
+      format.json { render json: @term_records}
+    end
+  end
+
   def index
 
     return get_search_history()

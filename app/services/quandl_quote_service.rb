@@ -42,7 +42,8 @@ class QuandlQuoteService
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
 
       request_url = url(stock_symbol)
-
+      puts request_url
+      
       Rails.cache.fetch(request_url, :expires =>12.hours) do
         response = RestClient.get(request_url,params)
         json = JSON.parse(response)

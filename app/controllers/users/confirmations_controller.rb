@@ -1,4 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  protect_from_forgery
+  skip_before_action :verify_authenticity_token
   # GET /resource/confirmation/new
   # def new
   #   super

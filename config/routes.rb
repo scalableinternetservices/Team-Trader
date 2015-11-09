@@ -5,29 +5,33 @@ Rails.application.routes.draw do
   get 'google_trends_prediction/show'
 
   devise_for :users, controllers:{ sessions: 'users/sessions', passwords: 'users/passwords', registrations: 'users/registrations' }
+  
+  root to: 'pages#home'
 
   get 'company_list/getHints'
 
-  get "/pages/:page" => "pages#show"
 
   get 'volume_chart/index'
   get 'volume_chart/show'
 
-  get 'charts/PLChart'
 
   get 'google_trends_strategy/index'
   get 'google_trends_strategy/show'
   get 'quotes/getHistoricalData'
+
+  get 'google_trends_strategy/get_stock_search_history'
+  get 'google_trends_strategy/get_term_search_history'
+
+  resources :investments
+
+  #Deprecated
+  get 'charts/PLChart'
+  get "/pages/:page" => "pages#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root to: 'pages#home'
-
-
-  resources :portfolios do
-    resources :investments
-  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
