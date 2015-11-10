@@ -118,7 +118,7 @@
           <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
+          <http url='%%gts_js%%.js' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
@@ -140,7 +140,7 @@
           <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
+          <http url='%%gts_js%%.js' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
@@ -159,7 +159,7 @@
           <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
+          <http url='%%gts_js%%.js' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
@@ -181,7 +181,7 @@
           <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
         </request>
         <request>
-          <http url='%%gts_css%%.css' version='1.1' method='GET'></http>
+          <http url='%%gts_js%%.js' version='1.1' method='GET'></http>
         </request>
         <request>
           <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
