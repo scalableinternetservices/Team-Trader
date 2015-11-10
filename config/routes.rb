@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'random_gt_query/volume'
+
+  get 'random_gt_query/gts'
+
   get 'google_trends_prediction/index'
 
   get 'google_trends_prediction/show'
