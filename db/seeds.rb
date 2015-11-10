@@ -10,6 +10,14 @@
 #Populate company table after db setup
 require 'csv'
 
+
+
 CSV.foreach(Rails.root.join('app','assets','csv','yahoo_stock_list.csv')) do |row|
  cl = Company.create(code:row[0], name:row[2]);
+end
+
+TermSearchHistory.delete_all
+
+CSV.foreach(Rails.root.join('app','assets','csv','20kwords.csv')) do |row|
+ 	TermSearchHistory.create(term: row[0], count:1)
 end

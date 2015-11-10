@@ -1,0 +1,2 @@
+module RandomGtQueryHelper
+end
