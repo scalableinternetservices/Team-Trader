@@ -1,8 +1,8 @@
 
 class GoogleTrendsStrategyController < ApplicationController
-  def get_search_history
-    @term_records = TermSearchHistory.all.order('count DESC')
-    @stock_records = StockSearchHistory.all.order('count DESC')
+  def get_search_history(limit = 8)
+    @term_records = TermSearchHistory.all.order('count DESC').take(limit)
+    @stock_records = StockSearchHistory.all.order('count DESC').take(limit)
 
     return @stock_records, @term_records
   end
