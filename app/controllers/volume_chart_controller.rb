@@ -3,16 +3,14 @@ class VolumeChartController < ApplicationController
   require 'json'
 
   def get_search_history
-    @term_records = TermSearchHistory.all.order('count DESC')
-    @stock_records = StockSearchHistory.all.order('count DESC')
+    @term_records = TermSearchHistory.all.order('count DESC').limit(8)
+    @stock_records = StockSearchHistory.all.order('count DESC').limit(8)
 
     return @stock_records, @term_records
   end
 
   def index
-
-    return get_search_history()
-
+    get_search_history()
   end
 
   def update_search_history
