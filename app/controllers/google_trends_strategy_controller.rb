@@ -1,10 +1,11 @@
 
 class GoogleTrendsStrategyController < ApplicationController
+  before_action :validateAndExtractInput, only: :show
+
   def get_search_history(limit = 8)
     @term_records = TermSearchHistory.order('count DESC').limit(limit)
     @stock_records = StockSearchHistory.order('count DESC').limit(limit)
 
-    return @stock_records, @term_records
   end
 
   def get_stock_search_history(limit = 8)
@@ -26,7 +27,7 @@ class GoogleTrendsStrategyController < ApplicationController
   end
 
   def update_search_history
-    stock_symbol = params[:stock_symbol].downcase
+    stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
 
     if StockSearchHistory.where(stock: stock_symbol).empty?
@@ -47,13 +48,18 @@ class GoogleTrendsStrategyController < ApplicationController
   end
 
   def show
-
-    update_search_history()
-
     today = Date.today
     beginning = today-400#124#1095
     start_date = beginning.to_s#'2015-07-03'
     end_date = today.to_s#'2015-09-30'
+
+    update_search_history()
+
+    if(!QuandlQuoteService.check_data_set_available(params[:stock_symbol], start_date, end_date))
+      redirect_to google_trends_strategy_index_url , :notice=>'Sorry, the stock you search is currently unavailable in database'
+      return
+    end
+
 
     trend_data = GoogleTrendsService.getMonths(params[:trend_term], 12)
 
@@ -88,7 +94,10 @@ class GoogleTrendsStrategyController < ApplicationController
     @labels = @labels.reverse.drop(1).reverse
     @bh_ret = @bh_ret.reverse.drop(1).reverse
     @gt_ret = @gt_ret.reverse.drop(1).reverse
-    
+
+
+    @stock_info = Index.find_by(symbol:params[:stock_symbol])
+
   end
 
   private
@@ -142,6 +151,27 @@ class GoogleTrendsStrategyController < ApplicationController
   def relative_change_in_search(index, values)
     m = values[index-delta_t,index-1].mean
     values[index] - m
+  end
+
+  private
+  def validateAndExtractInput
+    if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
+      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol is empty'
+      return
+    end
+
+    if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
+      redirect_to google_trends_strategy_index_url, :notice=>'Trend is empty'
+      return
+    end
+
+    if ((/.*\((.*)\)/ =~ params[:stock_symbol]).nil?)
+      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol illegal. Format: Name(Symbol)'
+      return
+    end
+
+    #Extract Input
+    params[:stock_symbol] = /.*\((.*)\)/.match(params[:stock_symbol])[1]
   end
 
 end

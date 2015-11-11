@@ -1,0 +1,18 @@
+
+<div class="col-sm-9 col-xs-12 user-info-box">
+  <h3 class="user-name"><span class="glyphicon glyphicon-stats"></span> &nbsp;<%= @stock_info.name + "(" + @stock_info.symbol + ")" %></h3>
+  <p><strong><span class="user-dept"><a href="<%= @stock_info.link %>">Info Link</a></span></strong></p>
+  <p><a href="#more-info-panel" data-toggle="collapse" data-target="#more-info-panel" class="more-info-toggle">More Info▼</a></p>
+  <div id="more-info-panel" class="collapse out">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <p><strong><i class="fa fa-envelope"></i> Market Capital: </strong><span ><%= @stock_info.market_cap %></span></p>
+        <p><strong><i class="fa fa-phone-square"></i> IPO Year: </strong><span><%= @stock_info.ipo_year %></span></p>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <p><strong><i class="fa fa-pencil"></i> Sector: </strong><span><%= @stock_info.sector %></span></p>
+        <p><strong><i class="fa fa-calendar"></i> Industry: </strong><span><%= @stock_info.industry %></span></p>
+      </div>
+    </div>
+  </div>
+</div>
