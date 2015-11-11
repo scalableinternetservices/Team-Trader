@@ -27,6 +27,12 @@ Rails.application.routes.draw do
   get 'google_trends_strategy/get_term_search_history'
 
   resources :investments
+  resources :indices do
+    #Collection routes
+    collection do
+      get 'hints'
+    end
+  end
 
   #Deprecated
   get 'charts/PLChart'

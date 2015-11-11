@@ -2,6 +2,8 @@ class VolumeChartController < ApplicationController
   require 'rest-client'
   require 'json'
 
+  before_action :validateAndExtractInput, only: :show
+
   def get_search_history
     @term_records = TermSearchHistory.all.order('count DESC').limit(8)
     @stock_records = StockSearchHistory.all.order('count DESC').limit(8)
@@ -14,7 +16,7 @@ class VolumeChartController < ApplicationController
   end
 
   def update_search_history
-    stock_symbol = params[:stock_symbol].downcase
+    stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
 
     if StockSearchHistory.where(stock: stock_symbol).empty?
@@ -36,8 +38,6 @@ class VolumeChartController < ApplicationController
   
   def show
 
-    update_search_history()
-
 
     today = Date.today
     beginning = today-400#124#1095
@@ -45,6 +45,13 @@ class VolumeChartController < ApplicationController
     end_date = today.to_s#'2015-09-30'
     params[:start_date] = start_date
     params[:end_date] = end_date
+
+    if(!QuandlQuoteService.check_data_set_available(params[:stock_symbol], start_date, end_date))
+      redirect_to google_trends_strategy_index_url , :notice=>'Sorry, the stock you search is currently unavailable in database'
+      return
+    end
+
+    update_search_history()
 
     @date_close_hash = QuandlQuoteService.getHistoricalVolume(params)
 
@@ -68,8 +75,8 @@ class VolumeChartController < ApplicationController
     puts @volume_values
     puts @trend_data
 
+    @stock_info = Index.find_by(symbol:params[:stock_symbol])
 
-    return @trend_labels, @trend_values, @volume_values
   end
 
 
@@ -114,6 +121,29 @@ class VolumeChartController < ApplicationController
     m = values[index-delta_t,index-1].mean
     values[index] - m
   end
+
+
+  private
+  def validateAndExtractInput
+    if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
+      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol is empty'
+      return
+    end
+
+    if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
+      redirect_to google_trends_strategy_index_url, :notice=>'Trend is empty'
+      return
+    end
+
+    if ((/.*\((.*)\)/ =~ params[:stock_symbol]).nil?)
+      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol illegal. Format: Name(Symbol)'
+      return
+    end
+
+    #Extract Input
+    params[:stock_symbol] = /.*\((.*)\)/.match(params[:stock_symbol])[1]
+  end
+
 
 end
 # 

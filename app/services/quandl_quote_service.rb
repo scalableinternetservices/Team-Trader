@@ -1,13 +1,13 @@
 class QuandlQuoteService
   class <<self
-    
+
     #Used for fetching prices of stocks
     def getHistoricalData(params)
       stock_symbol =params[:stock_symbol]
       start_date = params[:start_date]
       end_date = params[:end_date]
       collapse = params[:collapse]
-      
+
       data = getDataArray(stock_symbol, start_date, end_date)
     end
 
@@ -17,7 +17,8 @@ class QuandlQuoteService
       start_date = params[:start_date]
       end_date = params[:end_date]
       collapse = params[:collapse]
-      
+
+
       data = getDataArray(stock_symbol, start_date, end_date)
 
       hash = {}
@@ -30,26 +31,40 @@ class QuandlQuoteService
     #Used for fetching prices of stocks
     def getDateCloseHash(stock_symbol, start_date, end_date)
       data = getDataArray(stock_symbol, start_date, end_date)
-
       hash = {}
       data.each do |val|
         hash[val[0]] = val[4]
       end
       hash
     end
-    
+
+
     def getDataArray(stock_symbol, start_date, end_date)
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
-
       request_url = url(stock_symbol)
       puts request_url
-      
       Rails.cache.fetch(request_url, :expires =>12.hours) do
         response = RestClient.get(request_url,params)
         json = JSON.parse(response)
         data = json['dataset']['data']
       end
     end
+
+    def check_data_set_available(stock_symbol, start_date, end_date)
+      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
+      request_url = url(stock_symbol)
+      Rails.cache.fetch(request_url, :expires =>12.hours) do
+        begin
+          response = RestClient.get(request_url,params)
+          json = JSON.parse(response)
+          data = json['dataset']['data']
+        rescue RestClient::ExceptionWithResponse => err
+          return false
+        end
+      end
+      return true
+    end
+
 
     private
 

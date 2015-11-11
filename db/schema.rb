@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031235712) do
+ActiveRecord::Schema.define(version: 20151111070822) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "code"
@@ -22,14 +22,34 @@ ActiveRecord::Schema.define(version: 20151031235712) do
 
   add_index "companies", ["name"], name: "index_companies_on_name"
 
+  create_table "indices", force: :cascade do |t|
+    t.string   "symbol"
+    t.string   "name"
+    t.string   "market_cap"
+    t.string   "ipo_year"
+    t.string   "sector"
+    t.string   "industry"
+    t.string   "link"
+    t.string   "exchange"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "indices", ["symbol"], name: "index_indices_on_symbol"
+
   create_table "investments", force: :cascade do |t|
     t.string   "stockName"
     t.string   "ticker"
     t.integer  "quantity"
     t.float    "buyingPrice"
     t.date     "buyingDate"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "livePrice"
+    t.float    "totalInvestments"
+    t.float    "totalValue"
+    t.float    "overallGain"
+    t.float    "overallGainPercent"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
   end
 
