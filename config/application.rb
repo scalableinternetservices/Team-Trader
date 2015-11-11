@@ -24,5 +24,6 @@ module Trader
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/app/services)
     config.cache_store = :memory_store, { size: 64.megabytes }
+    config.assets.digest = false 
   end
 end
