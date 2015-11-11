@@ -9,22 +9,34 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="54.152.99.3" port="80" type="tcp"></server>
+    <server host="52.23.205.11" port="80" type="tcp"></server>
   </servers>
 
 
   <load>
-  <arrivalphase phase="1" duration="10" unit="second">
-    <users interarrival="2" unit="second"></users>
+  <arrivalphase phase="1" duration="1" unit="minute">
+    <users arrivalrate="2" unit="second"></users>
   </arrivalphase>
 
-<!--   <arrivalphase phase="2" duration="1" unit="minute">
-    <users interarrival="1" unit="second"></users>
+  <arrivalphase phase="2" duration="1" unit="minute">
+    <users arrivalrate="4" unit="second"></users>
   </arrivalphase>
 
   <arrivalphase phase="3" duration="1" unit="minute">
-    <users interarrival="0.1" unit="second"></users>
-  </arrivalphase> -->
+    <users arrivalrate="8" unit="second"></users>
+  </arrivalphase>
+
+  <arrivalphase phase="4" duration="1" unit="minute">
+    <users arrivalrate="16" unit="second"></users>
+  </arrivalphase>
+
+  <arrivalphase phase="5" duration="1" unit="minute">
+    <users arrivalrate="32" unit="second"></users>
+  </arrivalphase>
+
+  <arrivalphase phase="6" duration="1" unit="minute">
+    <users arrivalrate="64" unit="second"></users>
+  </arrivalphase>
   </load>
 
   <options>
