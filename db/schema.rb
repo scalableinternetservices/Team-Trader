@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20151111070822) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "companies", ["name"], name: "index_companies_on_name"
-
   create_table "indices", force: :cascade do |t|
     t.string   "symbol"
     t.string   "name"
@@ -43,23 +41,41 @@ ActiveRecord::Schema.define(version: 20151111070822) do
     t.integer  "quantity"
     t.float    "buyingPrice"
     t.date     "buyingDate"
-    t.float    "livePrice"
-    t.float    "totalInvestments"
-    t.float    "totalValue"
-    t.float    "overallGain"
-    t.float    "overallGainPercent"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "portfolio_id"
+  end
+
+  add_index "investments", ["portfolio_id"], name: "index_investments_on_portfolio_id"
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "name"
+    t.float    "totalRevenue"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
   end
 
-  add_index "investments", ["user_id"], name: "index_investments_on_user_id"
+  add_index "portfolios", ["user_id"], name: "index_portfolios_on_user_id"
 
   create_table "stock_search_histories", force: :cascade do |t|
     t.string   "stock"
     t.integer  "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string   "ticker"
+    t.date     "date"
+    t.float    "open_price"
+    t.float    "highest_price"
+    t.float    "lowest_price"
+    t.float    "close_price"
+    t.float    "volume"
+    t.float    "adj_close"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "term_search_histories", force: :cascade do |t|
