@@ -44,6 +44,15 @@ In this section, we describe the results from load testing with both vertically 
 
 Vertical scaling was tested in 6 phases with 2, 4, 8, 16, 32, and 64 users arriving at the page every second.
 
+\subsubsection{Observations}
+
+\begin{itemize}
+  \item Our first request takes a long time to load as many users come to visit the site.
+  \item Increasing server size does not seem to do much for average transaction times.
+  \item The number of 500 and 503 status codes reduced as the servers increased in performance, allowing to serve more users
+  \item The number of 200 status codes increased proportionally as 500 and 503 decreased.
+  \item The number of connected users increases as we increase server performance.
+\end{itemize}
 \newpage
 
 \begin{figure}[h!]

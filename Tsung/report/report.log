@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 NOV 2015 09:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 NOV 2015 14:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -165,71 +165,77 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 32.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
 
-[1
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
+ [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/transaction_medium.png, id=9, 1027.84pt x 770.88pt>
+<images/transaction_medium.png, id=10, 1027.84pt x 770.88pt>
 File: images/transaction_medium.png Graphic file (type png)
 
 <use images/transaction_medium.png>
-Package pdftex.def Info: images/transaction_medium.png used on input line 52.
+Package pdftex.def Info: images/transaction_medium.png used on input line 61.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/transaction_large.png, id=10, 1027.84pt x 770.88pt>
+<images/transaction_large.png, id=11, 1027.84pt x 770.88pt>
 File: images/transaction_large.png Graphic file (type png)
 
 <use images/transaction_large.png>
-Package pdftex.def Info: images/transaction_large.png used on input line 57.
+Package pdftex.def Info: images/transaction_large.png used on input line 66.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/transaction_xlarge.png, id=11, 1027.84pt x 770.88pt>
+<images/transaction_xlarge.png, id=12, 1027.84pt x 770.88pt>
 File: images/transaction_xlarge.png Graphic file (type png)
 
 <use images/transaction_xlarge.png>
-Package pdftex.def Info: images/transaction_xlarge.png used on input line 62.
+Package pdftex.def Info: images/transaction_xlarge.png used on input line 71.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_medium.png, id=12, 1027.84pt x 770.88pt>
+<images/http_code_medium.png, id=13, 1027.84pt x 770.88pt>
 File: images/http_code_medium.png Graphic file (type png)
 
 <use images/http_code_medium.png>
-Package pdftex.def Info: images/http_code_medium.png used on input line 71.
+Package pdftex.def Info: images/http_code_medium.png used on input line 80.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_large.png, id=13, 1027.84pt x 770.88pt>
+<images/http_code_large.png, id=14, 1027.84pt x 770.88pt>
 File: images/http_code_large.png Graphic file (type png)
 
 <use images/http_code_large.png>
-Package pdftex.def Info: images/http_code_large.png used on input line 76.
+Package pdftex.def Info: images/http_code_large.png used on input line 85.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_xlarge.png, id=14, 1027.84pt x 770.88pt>
+<images/http_code_xlarge.png, id=15, 1027.84pt x 770.88pt>
 File: images/http_code_xlarge.png Graphic file (type png)
 
 <use images/http_code_xlarge.png>
-Package pdftex.def Info: images/http_code_xlarge.png used on input line 81.
+Package pdftex.def Info: images/http_code_xlarge.png used on input line 90.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_medium.png, id=15, 1027.84pt x 770.88pt>
+<images/users_simul_medium.png, id=16, 1027.84pt x 770.88pt>
 File: images/users_simul_medium.png Graphic file (type png)
 
 <use images/users_simul_medium.png>
-Package pdftex.def Info: images/users_simul_medium.png used on input line 90.
+Package pdftex.def Info: images/users_simul_medium.png used on input line 99.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_large.png, id=16, 1027.84pt x 770.88pt>
+<images/users_simul_large.png, id=17, 1027.84pt x 770.88pt>
 File: images/users_simul_large.png Graphic file (type png)
 
 <use images/users_simul_large.png>
-Package pdftex.def Info: images/users_simul_large.png used on input line 95.
+Package pdftex.def Info: images/users_simul_large.png used on input line 104.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_xlarge.png, id=17, 1027.84pt x 770.88pt>
+<images/users_simul_xlarge.png, id=18, 1027.84pt x 770.88pt>
 File: images/users_simul_xlarge.png Graphic file (type png)
 
 <use images/users_simul_xlarge.png>
-Package pdftex.def Info: images/users_simul_xlarge.png used on input line 100.
+Package pdftex.def Info: images/users_simul_xlarge.png used on input line 109.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
  [2 <./images/transaction_medium.png> <./images/transaction_large.png> <./image
 s/transaction_xlarge.png> <./images/http_code_medium.png> <./images/http_code_l
@@ -237,21 +243,22 @@ arge.png> <./images/http_code_xlarge.png> <./images/users_simul_medium.png> <./
 images/users_simul_large.png> <./images/users_simul_xlarge.png>] [3] (./report.
 aux) ) 
 Here is how much of TeX's memory you used:
- 2695 strings out of 493089
- 43424 string characters out of 6134842
+ 2714 strings out of 493089
+ 43756 string characters out of 6134842
  101864 words of memory out of 5000000
- 6174 multiletter control sequences out of 15000+600000
- 6363 words of font info for 23 fonts, out of 8000000 for 9000
+ 6190 multiletter control sequences out of 15000+600000
+ 6927 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,7n,40p,246b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
 .pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
 fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report.pdf (3 pages, 215370 bytes).
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (3 pages, 224410 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 52 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
