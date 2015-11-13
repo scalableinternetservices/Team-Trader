@@ -151,7 +151,7 @@
       <transaction name = "google_trends_query">
         <request>
           <!-- <http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=aapl' version='1.1' method='POST'></http> -->
-          <http url='/random_gt_query/gts' version='1.1' method='POST'></http>
+          <http url='/random_gt_query/gts' version='1.1' method='GET'></http>
         </request>
         <request  subst="true">
           <http url='/assets/application-872c0659e84dc9ecc0cb1eb38ac394282dcb0fe9a81e2d3530854ca2115eacc2.css' version='1.1' method='GET'></http>
@@ -199,7 +199,7 @@
       <transaction name = "volume_query">
         <request>
           <!-- <http url='/volume_chart/show?trend_term=debt+&amp;stock_symbol=aapl' version='1.1' method='POST'></http> -->
-          <http url='/random_gt_query/volume' version='1.1' method='POST'></http>
+          <http url='/random_gt_query/volume' version='1.1' method='GET'></http>
         </request>
         <request  subst="true">
           <http url='/assets/application-872c0659e84dc9ecc0cb1eb38ac394282dcb0fe9a81e2d3530854ca2115eacc2.css' version='1.1' method='GET'></http>
