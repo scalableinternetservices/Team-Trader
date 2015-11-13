@@ -12,7 +12,6 @@
     <server host="52.23.205.11" port="80" type="tcp"></server>
   </servers>
 
-
   <load>
   <arrivalphase phase="1" duration="1" unit="minute">
     <users arrivalrate="2" unit="second"></users>
@@ -29,14 +28,19 @@
   <arrivalphase phase="4" duration="1" unit="minute">
     <users arrivalrate="16" unit="second"></users>
   </arrivalphase>
-
+  
   <arrivalphase phase="5" duration="1" unit="minute">
-    <users arrivalrate="32" unit="second"></users>
+    <users arrivalrate="20" unit="second"></users>
   </arrivalphase>
 
   <arrivalphase phase="6" duration="1" unit="minute">
-    <users arrivalrate="64" unit="second"></users>
+    <users arrivalrate="24" unit="second"></users>
   </arrivalphase>
+
+  <arrivalphase phase="7" duration="1" unit="minute">
+    <users arrivalrate="28" unit="second"></users>
+  </arrivalphase>
+  
   </load>
 
   <options>
