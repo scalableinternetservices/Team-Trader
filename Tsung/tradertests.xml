@@ -9,34 +9,34 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="52.23.205.11" port="80" type="tcp"></server>
+    <server host="54.152.35.97" port="80" type="tcp"></server>
   </servers>
 
   <load>
-  <arrivalphase phase="1" duration="1" unit="minute">
-    <users arrivalrate="8" unit="second"></users>
-  </arrivalphase>
+    <arrivalphase phase="1" duration="1" unit="minute">
+      <users arrivalrate="8" unit="second"></users>
+    </arrivalphase>
 
-  <arrivalphase phase="2" duration="1" unit="minute">
-    <users arrivalrate="16" unit="second"></users>
-  </arrivalphase>
-  
-  <arrivalphase phase="3" duration="1" unit="minute">
-    <users arrivalrate="20" unit="second"></users>
-  </arrivalphase>
+    <arrivalphase phase="2" duration="1" unit="minute">
+      <users arrivalrate="16" unit="second"></users>
+    </arrivalphase>
 
-  <arrivalphase phase="4" duration="1" unit="minute">
-    <users arrivalrate="24" unit="second"></users>
-  </arrivalphase>
+    <arrivalphase phase="3" duration="1" unit="minute">
+      <users arrivalrate="20" unit="second"></users>
+    </arrivalphase>
 
-  <arrivalphase phase="5" duration="1" unit="minute">
-    <users arrivalrate="28" unit="second"></users>
-  </arrivalphase>
-  
-  <arrivalphase phase="6" duration="1" unit="minute">
-    <users arrivalrate="32" unit="second"></users>
-  </arrivalphase>
-  
+    <arrivalphase phase="4" duration="1" unit="minute">
+      <users arrivalrate="24" unit="second"></users>
+    </arrivalphase>
+
+    <arrivalphase phase="5" duration="1" unit="minute">
+      <users arrivalrate="28" unit="second"></users>
+    </arrivalphase>
+
+    <arrivalphase phase="6" duration="1" unit="minute">
+      <users arrivalrate="32" unit="second"></users>
+    </arrivalphase>
+
   </load>
 
   <options>
@@ -54,8 +54,8 @@
       <!-- Hit the homepage -->
       <transaction name = "index">
         <request>
-<!--           <dyn_variable name="home_css" re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
-          <dyn_variable name="home_js" re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/> -->
+          <!--           <dyn_variable name="home_css" re="&#x22;(\/assets/[^&#x22;]*).css&#x22;"/>
+                    <dyn_variable name="home_js" re="&#x22;(\/assets/[^&#x22;]*).js&#x22;"/> -->
           <http url='/' version='1.1' method='GET'></http>
         </request>
         <request  subst="true">
@@ -67,18 +67,6 @@
         <request>
           <http url='/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2' version='1.1' method='GET'></http>
         </request>
- <!--        <request>
-          <http url='https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' version='1.1' method='GET'></http>
-        </request>
-        <request>
-          <http url='http://creoignis.pl/wp-content/themes/creoignis/img/illustration-responsive.svg' version='1.1' method='GET'></http>
-        </request>
-        <request>
-          <http url='https://upload.wikimedia.org/wikipedia/en/9/9e/NASDAQ.svg' version='1.1' method='GET'></http>
-        </request>
-        <request>
-          <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
-        </request> -->
 
       </transaction>
 
@@ -100,16 +88,12 @@
           <var name="random_user_name" />
         </setdynvars>
         <setdynvars sourcetype="random_string" length="13">
-          <var name="randon_email_name" />
+          <var name="random_email_name" />
         </setdynvars>
+
         <request subst="true">
           <http url="/users" method="POST" version="1.1"
-                contents="utf8=%E2%9C%93
-                &amp;authenticity_token=%%_authenticity_token%%
-                &amp;user%5Bemail%5D=%%_random_email_name%%
-                &amp;user%5Bpassword%5D=%%_random_email_name%%
-                &amp;user%5Bpassword_confirmation%5D==%%_random_email_name%%
-                &amp;commit=Sign+up">
+                contents="utf8=%E2%9C%93&amp;authenticity_token=%%_authenticity_token%%&amp;user%5Bemail%5D=%%_random_email_name%%@gmail.com&amp;user%5Bpassword%5D=%%_random_email_name%%&amp;user%5Bpassword_confirmation%5D=%%_random_email_name%%&amp;commit=Sign+up">
           </http>
         </request>
       </transaction>
@@ -136,12 +120,6 @@
         <request>
           <http url='/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2' version='1.1' method='GET'></http>
         </request>
-<!--         <request>
-          <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
-        </request>
-        <request>
-          <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
-        </request> -->
       </transaction>
 
       <!-- Wait 2 seconds -->
@@ -150,7 +128,6 @@
       <!-- do random GTS -->
       <transaction name = "google_trends_query">
         <request>
-          <!-- <http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=aapl' version='1.1' method='POST'></http> -->
           <http url='/random_gt_query/gts' version='1.1' method='GET'></http>
         </request>
         <request  subst="true">
@@ -162,9 +139,6 @@
         <request>
           <http url='/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2' version='1.1' method='GET'></http>
         </request>
-<!--         <request>
-          <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
-        </request> -->
       </transaction>
 
       <!-- Wait 2 seconds -->
@@ -184,12 +158,6 @@
         <request>
           <http url='/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2' version='1.1' method='GET'></http>
         </request>
-<!--         <request>
-          <http url='http://yui.yahooapis.com/pure/0.6.0/pure-min.css' version='1.1' method='GET'></http>
-        </request>
-        <request>
-          <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
-        </request> -->
       </transaction>
 
       <!-- Wait 2 seconds -->
@@ -210,9 +178,6 @@
         <request>
           <http url='/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2' version='1.1' method='GET'></http>
         </request>
-<!--         <request>
-          <http url='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js' version='1.1' method='GET'></http>
-        </request> -->
       </transaction>
 
 
@@ -221,7 +186,6 @@
       <transaction name="investment">
         <request>
           <http url="/investments" version='1.1' method='GET'></http>
-          <!--<dyn_variable name="authenticity_token"></dyn_variable>-->
         </request>
         <request>
           <http url='/investments/new' version='1.1' method='GET'></http>
@@ -229,15 +193,12 @@
 
         <request subst="true">
           <http url='/investments' version='1.1' method='POST'
-                contents='utf8=%E2%9C%93
-                &amp;investment%5BstockName%5D=Yahoo
-                &amp;investment%5Bticker%5D=YHOO
-                &amp;investment%5Bquantity%5D=2
-                &amp;commit=Create+Investment' ></http>
+                contents='utf8=%E2%9C%93&amp;investment%5BstockName%5D=Yahoo&amp;investment%5Bticker%5D=YHOO&amp;investment%5Bquantity%5D=2&amp;commit=Create+Investment' ></http>
         </request>
+
       </transaction>
 
 
     </session>
   </sessions>
-</tsung> 
+</tsung>
