@@ -210,9 +210,17 @@
         </request>
 
       </transaction>
+      
+      <!-- Wait 1 seconds -->
+      <thinktime value="1" random="true"></thinktime>
 
-
-
+      <transaction name = "trend strategy">
+		<http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=Apple%20Inc.(AAPL)' version='1.1' method='GET'></http>
+		</transaction>
+	</transaction>
+	
+	<!-- Wait 1 seconds -->
+      <thinktime value="1" random="true"></thinktime>
 
       <transaction name="investment">
         <request>
