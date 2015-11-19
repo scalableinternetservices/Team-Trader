@@ -91,9 +91,9 @@ class GoogleTrendsStrategyController < ApplicationController
     @bh_ret = @bh_ret.drop(delta_t)
     @gt_ret = @gt_ret.drop(delta_t)
     
-    @labels = @labels.reverse.drop(1).reverse
-    @bh_ret = @bh_ret.reverse.drop(1).reverse
-    @gt_ret = @gt_ret.reverse.drop(1).reverse
+    @labels.pop
+    @bh_ret.pop
+    @gt_ret.pop
 
 
     @stock_info = Index.find_by(symbol:params[:stock_symbol])
