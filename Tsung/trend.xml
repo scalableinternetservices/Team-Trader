@@ -13,27 +13,23 @@
 	</servers>
 	<load>
 		<arrivalphase phase="1" duration="30" unit="second">
-			<users arrivalrate="20" unit="second"></users>
+			<users arrivalrate="16" unit="second"></users>
 		</arrivalphase>
 		<arrivalphase phase="2" duration="30" unit="second">
-			<users arrivalrate="24" unit="second"></users>
-		</arrivalphase>
-		<arrivalphase phase="3" duration="30" unit="second">
-			<users arrivalrate="28" unit="second"></users>
-		</arrivalphase>
-		<arrivalphase phase="4" duration="30" unit="second">
 			<users arrivalrate="32" unit="second"></users>
 		</arrivalphase>
+		<arrivalphase phase="3" duration="30" unit="second">
+			<users arrivalrate="64" unit="second"></users>
+		</arrivalphase>
+		<arrivalphase phase="4" duration="30" unit="second">
+			<users arrivalrate="128" unit="second"></users>
+		</arrivalphase>
 		<arrivalphase phase="5" duration="30" unit="second">
-			<users arrivalrate="36" unit="second"></users>
+			<users arrivalrate="256" unit="second"></users>
 		</arrivalphase>
 		<arrivalphase phase="6" duration="30" unit="second">
-			<users arrivalrate="40" unit="second"></users>
+			<users arrivalrate="512" unit="second"></users>
 		</arrivalphase>
-		<arrivalphase phase="7" duration="30" unit="second">
-			<users arrivalrate="44" unit="second"></users>
-		</arrivalphase>
-
 	</load>
 	<options>
 		<!-- Set connection timeout to 2 seconds -->
@@ -45,22 +41,6 @@
 	<sessions>
 		<session name="http-example" probability="100" type="ts_http">
 
-			
-
-			<!-- do random GTS -->
-			<transaction name = "google_trends_random">
-				<request>
-					<dyn_variable name="redirect" re="Location: (http://.*)\r"/>
-					<http url='/random_gt_query/gts' version='1.1' method='GET'></http>
-				</request>
-				<request subst="true">
-					<http url="%%_redirect%%" method="GET"></http>
-				</request>
-			</transaction>
-
-			<!-- Wait 1 seconds -->
-			<thinktime value="1" random="true"></thinktime>
-			
 			<transaction name = "trend_strategy">
 				<request>
 					<http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=Apple%20Inc.(AAPL)' version='1.1' method='GET'></http>
