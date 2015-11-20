@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  12 NOV 2015 14:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 NOV 2015 14:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -175,90 +175,184 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<images/transaction_medium.png, id=10, 1027.84pt x 770.88pt>
-File: images/transaction_medium.png Graphic file (type png)
+<images/vertical/transaction_medium.png, id=10, 1027.84pt x 770.88pt>
+File: images/vertical/transaction_medium.png Graphic file (type png)
 
-<use images/transaction_medium.png>
-Package pdftex.def Info: images/transaction_medium.png used on input line 61.
+<use images/vertical/transaction_medium.png>
+Package pdftex.def Info: images/vertical/transaction_medium.png used on input l
+ine 61.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/transaction_large.png, id=11, 1027.84pt x 770.88pt>
-File: images/transaction_large.png Graphic file (type png)
+<images/vertical/transaction_large.png, id=11, 1027.84pt x 770.88pt>
+File: images/vertical/transaction_large.png Graphic file (type png)
 
-<use images/transaction_large.png>
-Package pdftex.def Info: images/transaction_large.png used on input line 66.
+<use images/vertical/transaction_large.png>
+Package pdftex.def Info: images/vertical/transaction_large.png used on input li
+ne 66.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/transaction_xlarge.png, id=12, 1027.84pt x 770.88pt>
-File: images/transaction_xlarge.png Graphic file (type png)
+<images/vertical/transaction_xlarge.png, id=12, 1027.84pt x 770.88pt>
+File: images/vertical/transaction_xlarge.png Graphic file (type png)
 
-<use images/transaction_xlarge.png>
-Package pdftex.def Info: images/transaction_xlarge.png used on input line 71.
+<use images/vertical/transaction_xlarge.png>
+Package pdftex.def Info: images/vertical/transaction_xlarge.png used on input l
+ine 71.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_medium.png, id=13, 1027.84pt x 770.88pt>
-File: images/http_code_medium.png Graphic file (type png)
+<images/vertical/http_code_medium.png, id=13, 1027.84pt x 770.88pt>
+File: images/vertical/http_code_medium.png Graphic file (type png)
 
-<use images/http_code_medium.png>
-Package pdftex.def Info: images/http_code_medium.png used on input line 80.
+<use images/vertical/http_code_medium.png>
+Package pdftex.def Info: images/vertical/http_code_medium.png used on input lin
+e 80.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_large.png, id=14, 1027.84pt x 770.88pt>
-File: images/http_code_large.png Graphic file (type png)
+<images/vertical/http_code_large.png, id=14, 1027.84pt x 770.88pt>
+File: images/vertical/http_code_large.png Graphic file (type png)
 
-<use images/http_code_large.png>
-Package pdftex.def Info: images/http_code_large.png used on input line 85.
+<use images/vertical/http_code_large.png>
+Package pdftex.def Info: images/vertical/http_code_large.png used on input line
+ 85.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/http_code_xlarge.png, id=15, 1027.84pt x 770.88pt>
-File: images/http_code_xlarge.png Graphic file (type png)
+<images/vertical/http_code_xlarge.png, id=15, 1027.84pt x 770.88pt>
+File: images/vertical/http_code_xlarge.png Graphic file (type png)
 
-<use images/http_code_xlarge.png>
-Package pdftex.def Info: images/http_code_xlarge.png used on input line 90.
+<use images/vertical/http_code_xlarge.png>
+Package pdftex.def Info: images/vertical/http_code_xlarge.png used on input lin
+e 90.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_medium.png, id=16, 1027.84pt x 770.88pt>
-File: images/users_simul_medium.png Graphic file (type png)
+<images/vertical/users_simul_medium.png, id=16, 1027.84pt x 770.88pt>
+File: images/vertical/users_simul_medium.png Graphic file (type png)
 
-<use images/users_simul_medium.png>
-Package pdftex.def Info: images/users_simul_medium.png used on input line 99.
+<use images/vertical/users_simul_medium.png>
+Package pdftex.def Info: images/vertical/users_simul_medium.png used on input l
+ine 99.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_large.png, id=17, 1027.84pt x 770.88pt>
-File: images/users_simul_large.png Graphic file (type png)
+<images/vertical/users_simul_large.png, id=17, 1027.84pt x 770.88pt>
+File: images/vertical/users_simul_large.png Graphic file (type png)
 
-<use images/users_simul_large.png>
-Package pdftex.def Info: images/users_simul_large.png used on input line 104.
+<use images/vertical/users_simul_large.png>
+Package pdftex.def Info: images/vertical/users_simul_large.png used on input li
+ne 104.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
 
-<images/users_simul_xlarge.png, id=18, 1027.84pt x 770.88pt>
-File: images/users_simul_xlarge.png Graphic file (type png)
+<images/vertical/users_simul_xlarge.png, id=18, 1027.84pt x 770.88pt>
+File: images/vertical/users_simul_xlarge.png Graphic file (type png)
 
-<use images/users_simul_xlarge.png>
-Package pdftex.def Info: images/users_simul_xlarge.png used on input line 109.
+<use images/vertical/users_simul_xlarge.png>
+Package pdftex.def Info: images/vertical/users_simul_xlarge.png used on input l
+ine 109.
 (pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
- [2 <./images/transaction_medium.png> <./images/transaction_large.png> <./image
-s/transaction_xlarge.png> <./images/http_code_medium.png> <./images/http_code_l
-arge.png> <./images/http_code_xlarge.png> <./images/users_simul_medium.png> <./
-images/users_simul_large.png> <./images/users_simul_xlarge.png>] [3] (./report.
-aux) ) 
+ [2 <./images/vertical/transaction_medium.png> <./images/vertical/transaction_l
+arge.png> <./images/vertical/transaction_xlarge.png> <./images/vertical/http_co
+de_medium.png> <./images/vertical/http_code_large.png> <./images/vertical/http_
+code_xlarge.png> <./images/vertical/users_simul_medium.png> <./images/vertical/
+users_simul_large.png> <./images/vertical/users_simul_xlarge.png>] [3]
+<images/horizontal_m3large_dbm3large/transaction_1.png, id=35, 1027.84pt x 770.
+88pt>
+File: images/horizontal_m3large_dbm3large/transaction_1.png Graphic file (type 
+png)
+ <use images/horizontal_m3large_dbm3large/transaction_1.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/transaction_1.png 
+used on input line 135.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/transaction_2.png, id=36, 1027.84pt x 770.
+88pt>
+File: images/horizontal_m3large_dbm3large/transaction_2.png Graphic file (type 
+png)
+ <use images/horizontal_m3large_dbm3large/transaction_2.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/transaction_2.png 
+used on input line 140.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/transaction_4.png, id=37, 1027.84pt x 770.
+88pt>
+File: images/horizontal_m3large_dbm3large/transaction_4.png Graphic file (type 
+png)
+ <use images/horizontal_m3large_dbm3large/transaction_4.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/transaction_4.png 
+used on input line 145.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/http_1.png, id=38, 1027.84pt x 770.88pt>
+File: images/horizontal_m3large_dbm3large/http_1.png Graphic file (type png)
+
+<use images/horizontal_m3large_dbm3large/http_1.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/http_1.png used on
+ input line 154.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/http_2.png, id=39, 1027.84pt x 770.88pt>
+File: images/horizontal_m3large_dbm3large/http_2.png Graphic file (type png)
+
+<use images/horizontal_m3large_dbm3large/http_2.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/http_2.png used on
+ input line 159.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/http_4.png, id=40, 1027.84pt x 770.88pt>
+File: images/horizontal_m3large_dbm3large/http_4.png Graphic file (type png)
+
+<use images/horizontal_m3large_dbm3large/http_4.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/http_4.png used on
+ input line 164.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/sim_users_1.png, id=41, 1027.84pt x 770.88
+pt>
+File: images/horizontal_m3large_dbm3large/sim_users_1.png Graphic file (type pn
+g)
+ <use images/horizontal_m3large_dbm3large/sim_users_1.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/sim_users_1.png us
+ed on input line 173.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/sim_users_2.png, id=42, 1027.84pt x 770.88
+pt>
+File: images/horizontal_m3large_dbm3large/sim_users_2.png Graphic file (type pn
+g)
+ <use images/horizontal_m3large_dbm3large/sim_users_2.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/sim_users_2.png us
+ed on input line 178.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+
+<images/horizontal_m3large_dbm3large/sim_users_4.png, id=43, 1027.84pt x 770.88
+pt>
+File: images/horizontal_m3large_dbm3large/sim_users_4.png Graphic file (type pn
+g)
+ <use images/horizontal_m3large_dbm3large/sim_users_4.png>
+Package pdftex.def Info: images/horizontal_m3large_dbm3large/sim_users_4.png us
+ed on input line 183.
+(pdftex.def)             Requested size: 140.92792pt x 105.68755pt.
+ [4 <./images/horizontal_m3large_dbm3large/transaction_1.png> <./images/horizon
+tal_m3large_dbm3large/transaction_2.png> <./images/horizontal_m3large_dbm3large
+/transaction_4.png> <./images/horizontal_m3large_dbm3large/http_1.png> <./image
+s/horizontal_m3large_dbm3large/http_2.png> <./images/horizontal_m3large_dbm3lar
+ge/http_4.png> <./images/horizontal_m3large_dbm3large/sim_users_1.png> <./image
+s/horizontal_m3large_dbm3large/sim_users_2.png> <./images/horizontal_m3large_db
+m3large/sim_users_4.png>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2714 strings out of 493089
- 43756 string characters out of 6134842
+ 2760 strings out of 493089
+ 46222 string characters out of 6134842
  101864 words of memory out of 5000000
- 6190 multiletter control sequences out of 15000+600000
+ 6226 multiletter control sequences out of 15000+600000
  6927 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,7n,40p,246b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (3 pages, 224410 bytes).
+</usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (4 pages, 419540 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 73 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -58,17 +58,17 @@ Vertical scaling was tested in 6 phases with 2, 4, 8, 16, 32, and 64 users arriv
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/transaction_medium.png}
+        \includegraphics[width=\textwidth]{images/vertical/transaction_medium.png}
         \caption{m3.medium}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/transaction_large.png}
+        \includegraphics[width=\textwidth]{images/vertical/transaction_large.png}
         \caption{m3.large}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/transaction_xlarge.png}
+        \includegraphics[width=\textwidth]{images/vertical/transaction_xlarge.png}
         \caption{m3.xlarge}
     \end{subfigure}
     \caption{Mean transaction and page duration for three m3 instances.}
@@ -77,17 +77,17 @@ Vertical scaling was tested in 6 phases with 2, 4, 8, 16, 32, and 64 users arriv
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/http_code_medium.png}
+        \includegraphics[width=\textwidth]{images/vertical/http_code_medium.png}
         \caption{m3.medium}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/http_code_large.png}
+        \includegraphics[width=\textwidth]{images/vertical/http_code_large.png}
         \caption{m3.large}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/http_code_xlarge.png}
+        \includegraphics[width=\textwidth]{images/vertical/http_code_xlarge.png}
         \caption{m3.xlarge}
     \end{subfigure}
     \caption{HTTP code rate for three m3 instances.}
@@ -96,17 +96,17 @@ Vertical scaling was tested in 6 phases with 2, 4, 8, 16, 32, and 64 users arriv
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/users_simul_medium.png}
+        \includegraphics[width=\textwidth]{images/vertical/users_simul_medium.png}
         \caption{m3.medium}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/users_simul_large.png}
+        \includegraphics[width=\textwidth]{images/vertical/users_simul_large.png}
         \caption{m3.large}
     \end{subfigure}
     ~ 
     \begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{images/users_simul_xlarge.png}
+        \includegraphics[width=\textwidth]{images/vertical/users_simul_xlarge.png}
         \caption{m3.xlarge}
     \end{subfigure}
     \caption{Number of simultaneous users for three m3 instances.}
@@ -128,6 +128,62 @@ Vertical scaling was tested in 6 phases with 2, 4, 8, 16, 32, and 64 users arriv
 
 This section will discuss horizontal scaling
 
+\newpage
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/transaction_1.png}
+        \caption{One instance}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/transaction_2.png}
+        \caption{Two instances}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/transaction_4.png}
+        \caption{Three instances}
+    \end{subfigure}
+    \caption{Mean transaction and page duration for m3.large instances.}
+\end{figure}
 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/http_1.png}
+        \caption{Once instance}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/http_2.png}
+        \caption{Two instances}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/http_4.png}
+        \caption{Three instances}
+    \end{subfigure}
+    \caption{HTTP code rate for m3.large instances.}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/sim_users_1.png}
+        \caption{One instance}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/sim_users_2.png}
+        \caption{Two instances}
+    \end{subfigure}
+    ~ 
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{images/horizontal_m3large_dbm3large/sim_users_4.png}
+        \caption{Three instances}
+    \end{subfigure}
+    \caption{Number of simultaneous users for m3.large instances.}
+\end{figure}
 
 \end{document}
