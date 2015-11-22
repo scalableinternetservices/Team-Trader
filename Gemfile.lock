@@ -74,6 +74,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    fast_trie (0.5.1)
     ffi (1.9.10-x86-mingw32)
     gistyle (1.0.1)
     globalid (0.3.6)
@@ -209,6 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   factory_girl_rails
+  fast_trie
   gistyle
   jbuilder (~> 2.0)
   jquery-rails
