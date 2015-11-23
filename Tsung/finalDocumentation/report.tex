@@ -1,0 +1,118 @@
+\documentclass[dvips,12pt]{article}
+
+% Any percent sign marks a comment to the end of the line
+
+% Every latex document starts with a documentclass declaration like this
+% The option dvips allows for graphics, 12pt is the font size, and article
+%   is the style
+
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+
+
+% These are additional packages for "pdflatex", graphics, and to include
+% hyperlinks inside a document.
+
+\setlength{\oddsidemargin}{0.25in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+% These force using more of the margins that is the default style
+
+\begin{document}
+
+\title{Team Trader}
+\author{Sharath Rao, Yuesong Wang, Ethan Preble, Mathieu Rodrigue}
+\date{\today}
+
+\maketitle
+
+%20151111-2115 -- m3.medium
+%2151 -- m3.large
+%2320 -- m3.xlarge
+%
+Description about project and test implemented
+\newpage
+
+\section{Introduction}
+
+
+\subsection{Technical Framework}
+
+Describe something about Rails ...
+
+
+\subsection{Functions}
+More specification about functions of our system
+
+
+\newpage
+
+\section{Development Model}
+Here we describe how we developing as a team
+\subsection{Sprints}
+How many sprints? Each sprint's target specification and date.
+
+\subsection{Test}
+TDD or not? Describe something about unit test.
+
+
+\newpage
+
+\section{Application Architecture}
+\subsection{ER- Diagram}
+
+\subsection{Application Level Architecture}
+
+\newpage
+
+\section { Scalability Test and Optimization}
+\subsection{Critical User Path}
+Define how a user in our load test would behave. We can have several user path defined if necessary. Refer Yeap report for how to define a user path.
+
+\subsection{Dataset}
+Describe our dataset's size(how many users, investments records...) \\
+
+\subsection{Single Server Testing}
+Use m2.medium as initial configuration and figure out the bottle neck. (Reply Rate, Reply Time, 503 Error)
+
+\subsection{SQL and Program Optimization}
+Describe how we improve performance on limited resources and how the outcome enhanced.\\
+(1)Modify DB structure to have less join. \\
+(2)Avoid to have request like "Select *"\\
+(3)Pagination for large dataset display \\
+(4)Index ...\\
+(5)Trie...\\
+(6)More to be added
+
+\subsection{Vertical Scaling}
+Compare the difference in configuration between different instance types. Copy the graph, compare the data and get the conclusion that it's good to have larger instance.
+
+\subsection{Horizontal Scaling}
+Add more app server. Expect to be increased in linear trend. But there is bottle neck on db. Enlarge DB instance to see linear relationship between app server counts and handling capacity(Means without 503 Error). \\
+E.gThe result approved that horizontal scaling can improve the performace considerably. Dur- ing the high request traffic, the single instance start to refuse the request and finally we get 1394 503 erros. However for the other version ,the request are all handeled and there is no 503 errors. The mean respond time during the high traffic also differes a lot. The single instance responds with 3000ms on average and the scaling version responds with about 200ms.
+
+\subsection{Memcache}
+Try memcache.
+
+\subsection{Further Optimization}
+(1)DB warm up \\
+(2)Increasing DB Buffer pool size \\
+(3)Compare passenger and puma. For puma, adjust worker process number according to instance's CPU core number. 
+
+\newpage
+
+\section{Availablity Test}
+\subsection{App server availablity}
+\subsection{DB server availablity}
+\newpage
+
+\section{Conclusion}
+Learning points. Conclusion.
+
+
+\end{document}
