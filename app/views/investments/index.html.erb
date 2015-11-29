@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-sm-5 main">
-      <h1 class="page-header">Investments Dashboard</h1>
+      <h1 class="page-header">Investment Dashboard</h1>
 
       <div class="container">
         <div class="row">
@@ -13,7 +13,7 @@
                 Total
               </div>
               <div class="panel-body">
-                $12120
+                <%= @total %> 
               </div>
             </div>
           </div>
@@ -23,7 +23,7 @@
                 Profit
               </div>
               <div class="panel-body">
-                $60
+                <%= @profit %>
               </div>
             </div>
           </div>
@@ -46,8 +46,8 @@
             <th>Live Price</th>
             <th>Inv. Date</th>
             <th>Quantity</th>
-            <th>Overall Gain(%)</th>
             <th>Overall Gain($)</th>
+            <th>Overall Gain(%)</th>
             <th>Total Inv.</th>
             <th>Total Value</th>
 
