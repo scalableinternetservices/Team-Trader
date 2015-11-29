@@ -5,6 +5,16 @@ class InvestmentsController < ApplicationController
   
   def index
     @investments = Investment.where(user: current_user)
+    @total = 0.0
+    @profit =0.0
+    
+    if @investments != nil
+      @investments.each do |investment|
+        @total = @total + investment.totalValue
+        @profit = @profit +investment.overallGain
+      end
+    end 
+    
   end
 
   def getLivePrice(stock_symbol)
@@ -37,7 +47,7 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-
+    
     @investment = current_user.investments.new(investment_params)
     
     livePrice = getLivePrice(investment_params[:ticker])
@@ -47,7 +57,11 @@ class InvestmentsController < ApplicationController
     @investment.overallGain = (livePrice - @investment.buyingPrice)*@investment.quantity
     @investment.totalValue =  livePrice*@investment.quantity
     @investment.totalInvestments =  @investment.buyingPrice*@investment.quantity
-    @investment.overallGainPercent = (@investment.overallGain*hundred)/@investment.totalInvestments
+    @investment.overallGainPercent = 0.0
+    if @investment.totalInvestments != 0.0
+      @investment.overallGainPercent = (@investment.overallGain*hundred)/@investment.totalInvestments
+    end
+    
     
   
     respond_to do |format|
