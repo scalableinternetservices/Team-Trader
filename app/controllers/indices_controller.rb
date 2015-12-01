@@ -8,26 +8,26 @@ class IndicesController < ApplicationController
     super
     if not @@initialized
       Index.all.each do |c|
-      @@trie.add c.name+'('+c.symbol+')'
+        @@trie.add c.name+'('+c.symbol+')'
       end
       @@initialized = true
     end
   end
 
   #GET /hints
-  def hints
-    respond_to do |format|
-      # records = Index.where("symbol LIKE :prefix", prefix: "#{params[:query]}%")
-      format.json {render json:{:suggestions => getIndices(params[:query])}}
-    end
-  end
+  # def hints
+  #   respond_to do |format|
+  #     # records = Index.where("symbol LIKE :prefix", prefix: "#{params[:query]}%")
+  #     format.json {render json:{:suggestions => getIndices(params[:query])}}
+  #   end
+  # end
 
 
   def index
 
   end
 
-  private
+  # private
   def getIndices(prefix)
     children = @@trie.children(prefix)
     if children.empty?
@@ -38,6 +38,34 @@ class IndicesController < ApplicationController
       }
     end
   end
+
+
+
+
+
+  def hints
+    respond_to do |format|
+      records = Index.where("symbol LIKE :prefix", prefix: "#{params[:query]}%")
+      format.json {render json:{:suggestions => formatHints(records)}}
+    end
+  end
+  #
+  #
+  #
+  # def index
+  #
+  # end
+  #
+  def formatHints(records)
+    if not records.empty?
+      return records.collect{
+          |x| {:data=>x.symbol,:value => x.name.nil? ? '':x.name + '('  + x.symbol + ')' }
+      }
+    else
+      return {}
+    end
+  end
+
 end
 
 
@@ -45,28 +73,3 @@ end
 
 
 
-
-
-# def hints
-#   respond_to do |format|
-#     records = Index.where("symbol LIKE :prefix", prefix: "#{params[:query]}%")
-#     format.json {render json:{:suggestions => formatHints(records)}}
-#   end
-# end
-#
-#
-#
-# def index
-#
-# end
-#
-# private
-# def formatHints(records)
-#   if not records.empty?
-#     return records.collect{
-#         |x| {:data=>x.symbol,:value => x.name.nil? ? '':x.name + '('  + x.symbol + ')' }
-#     }
-#   else
-#     return {}
-#   end
-# end
