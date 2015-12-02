@@ -18,7 +18,7 @@ class IndicesController < ApplicationController
   def hints
     respond_to do |format|
       # records = Index.where("symbol LIKE :prefix", prefix: "#{params[:query]}%")
-      format.json {render json:{:suggestions => getIndices(params[:query])}}
+      format.json {render json:{:suggestions => getIndices(params[:query].capitalize)}}
     end
   end
 
