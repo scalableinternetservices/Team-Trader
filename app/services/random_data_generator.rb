@@ -2,7 +2,7 @@ require 'CSV'
 class RandomDataGenerator
 
   def self.generateUserAndPasswordCSV(numOfUser)
-    # @file = 'UsernamePassword.csv'
+    # @file = 'UsernamePasswordOld.csv'
     #Generate a lot of user in a CSV file
     @file =  '../assets/csv/UsernamePassword.csv'
     CSV.open(@file,'wb') do |csv|
@@ -32,7 +32,7 @@ class RandomDataGenerator
   end
 
   def self.generateHintsPrefix(numOfEntries)
-    # @file = 'UsernamePassword.csv'
+    # @file = 'UsernamePasswordOld.csv'
     @file =  '../assets/csv/HintsPrefix.csv'
     CSV.open(@file,'wb') do |csv|
       for i in 1...numOfEntries
@@ -41,6 +41,6 @@ class RandomDataGenerator
       end
     end
   end
-  generateUserAndPasswordCSV(10000)
-  # createCompanyList
+  # generateUserAndPasswordCSV(10000)
+  createCompanyList
 end

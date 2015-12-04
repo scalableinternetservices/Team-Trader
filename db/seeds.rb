@@ -27,12 +27,7 @@ ActiveRecord::Base.transaction do
   end
 end
 
-ActiveRecord::Base.transaction do
-CSV.foreach(Rails.root.join('app','assets','csv','UsernamePassword.csv')) do |row|
-    u= User.new(:email => row[0], :password => row[1], :password_confirmation => row[1] )
-    u.save
-  end
-end
+
 
 TermSearchHistory.delete_all
 
@@ -42,3 +37,18 @@ ActiveRecord::Base.transaction do
   end
 end
 
+
+inserts = []
+count = 100
+CSV.foreach(Rails.root.join('app','assets','csv','UsernamePassword.csv')) do |row|
+  if count == 0
+    sql = "INSERT INTO users('email','encrypted_password','created_at','updated_at') VALUES #{inserts.join(", ")}"
+    User.connection.execute sql
+    count = 100
+    inserts = []
+  end
+  inserts.push "('" + row[0] + "','" + '$2a$10$fjBAOlfNweP/M6JxT9wx4u72Vj2AlJxydsGO9gQ9QlS9eg0efKlpW' + "','" + "2015-12-04 06:08:36" + "','" + "2015-12-04 06:08:36" + "'" + ")"
+  count = count - 1
+end
+sql = "INSERT INTO users('email','encrypted_password','created_at','updated_at') VALUES #{inserts.join(", ")}"
+User.connection.execute sql
