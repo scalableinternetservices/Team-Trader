@@ -41,6 +41,6 @@ class RandomDataGenerator
       end
     end
   end
-  generateUserAndPasswordCSV(10000)
+  # generateUserAndPasswordCSV(10000)
   # createCompanyList
 end
