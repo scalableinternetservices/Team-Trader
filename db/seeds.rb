@@ -27,6 +27,12 @@ ActiveRecord::Base.transaction do
   end
 end
 
+ActiveRecord::Base.transaction do
+CSV.foreach(Rails.root.join('app','assets','csv','UsernamePassword.csv')) do |row|
+    u= User.new(:email => row[0], :password => row[1], :password_confirmation => row[1] )
+    u.save
+  end
+end
 
 TermSearchHistory.delete_all
 
