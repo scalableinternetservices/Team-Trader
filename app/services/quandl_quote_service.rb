@@ -18,7 +18,6 @@ class QuandlQuoteService
       end_date = params[:end_date]
       collapse = params[:collapse]
 
-
       data = getDataArray(stock_symbol, start_date, end_date)
 
       hash = {}
@@ -43,7 +42,6 @@ class QuandlQuoteService
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
       request_url = url(stock_symbol)
       cache_key = request_url + '-' + start_date + '-' + end_date
-      puts request_url
       Rails.cache.fetch(cache_key, :expires =>12.hours) do
         response = RestClient.get(request_url,params)
         json = JSON.parse(response)
