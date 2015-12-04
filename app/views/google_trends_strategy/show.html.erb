@@ -1,14 +1,29 @@
 
 
 <body>
-<h1 style="text-align: center;"> Google Trend (Pink) /Buy & Hold (Blue) </h1>
+<!--h1 style="text-align: center;"> Google Trend (Pink) /Buy & Hold (Blue) </h1-->
+<div class="container">
 <div style="width:800px; margin:0 auto;">
+	<div class="row" style="background-color:rgba(220,220,220,1); color:white; text-align: center;">
+        <div class="col-md-8"><h2>Google Trends Strategy</h2></div>
+        <div class="col-md-4"><h2><%= number_with_precision(@gt_ret[-1], :precision => 3) %></h2></div>
+      </div>
+      <div class="row"  style="background-color:rgba(151,187,205,1); color:white; text-align: center;">
+        <div class="col-md-8"><h2>Buy & Hold Strategy</h2></div>
+        <div class="col-md-4"><h2><%= number_with_precision(@bh_ret[-1], :precision => 3) %></h2></div>
+      </div>
+</div>
+<div style="width:800px; margin:0 auto;">
+  <div>
+    <h3 style="text-align: center;">Trend term '<%= @trend_term %>' <%= @ret_string %> since last week</h3>
+  </div>
   <div>
     <%= render 'stock_info' %>
   </div>
   <div>
     <canvas id="canvas" height="400" width="600"></canvas>
   </div>
+</div>
 </div>
 
 <script>
@@ -18,7 +33,7 @@
         labels : labels,
         datasets : [
             {
-                label: "My First dataset",
+                label: "Google Trends Strategy",
                 fillColor : "rgba(220,220,220,0.2)",
                 strokeColor : "rgba(220,220,220,1)",
                 pointColor : "rgba(220,220,220,1)",
@@ -29,7 +44,7 @@
 //					data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(), randomScalingFactor()]
             },
             {
-                label: "My Second dataset",
+                label: "Buy and Hold Strategy",
                 fillColor : "rgba(151,187,205,0.2)",
                 strokeColor : "rgba(151,187,205,1)",
                 pointColor : "rgba(151,187,205,1)",

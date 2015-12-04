@@ -61,7 +61,6 @@ class GoogleTrendsStrategyController < ApplicationController
       return
     end
 
-
     trend_data = GoogleTrendsService.getMonths(params[:trend_term], 12)
 
     @labels = trend_data.keys
@@ -88,6 +87,14 @@ class GoogleTrendsStrategyController < ApplicationController
       end
     end
     
+    @ret_string = 'decreasing'
+    val = @values[-1] - (@values[-2]+@values[-3]+@values[-4])/3.0
+    if(val < 0)
+      @ret_string = 'decreasing'
+    else
+      @ret_string = 'increasing'
+    end
+    
     @labels = @labels.drop(delta_t)
     @bh_ret = @bh_ret.drop(delta_t)
     @gt_ret = @gt_ret.drop(delta_t)
@@ -96,15 +103,15 @@ class GoogleTrendsStrategyController < ApplicationController
     @bh_ret.pop
     @gt_ret.pop
 
-
     @stock_info = Index.find_by(symbol:params[:stock_symbol])
+    @trend_term = params[:trend_term]
 
   end
 
   private
 
   def delta_t
-    3
+    3.0
   end
   
   def week_return_hash(saturday)

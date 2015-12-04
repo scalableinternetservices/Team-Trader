@@ -39,7 +39,7 @@ class QuandlQuoteService
 
 
     def getDataArray(stock_symbol, start_date, end_date)
-      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
+      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_keys.sample, 'Cache-Control' => 'max-age=0'}}
       request_url = url(stock_symbol)
       cache_key = request_url + '-' + start_date + '-' + end_date
       Rails.cache.fetch(cache_key, :expires =>12.hours) do
@@ -50,7 +50,7 @@ class QuandlQuoteService
     end
 
     def check_data_set_available(stock_symbol, start_date, end_date)
-      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_key, 'Cache-Control' => 'max-age=0'}}
+      params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_keys.sample, 'Cache-Control' => 'max-age=0'}}
       request_url = url(stock_symbol)
       cache_key = request_url + '-' + start_date + '-' + end_date
       Rails.cache.fetch(cache_key, :expires =>12.hours) do
@@ -72,8 +72,10 @@ class QuandlQuoteService
       'YAHOO'
     end
 
-    def api_key
-      'wabv2ax3dxSBrdGUrT5L'
+    def api_keys
+      ['wabv2ax3dxSBrdGUrT5L',
+        'fnZMzzUYLE3DjK5Lf_S4'
+      ]
     end
 
     def url(stock_symbol)
