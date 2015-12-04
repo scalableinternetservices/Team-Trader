@@ -49,10 +49,11 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-
-    @investment = current_user.investments.new(investment_params)
-
-    livePrice = getLivePrice(investment_params[:ticker]).round(2)
+    @investment = current_user.investments.new()
+    @investment.ticker = extractTicker(params[:stockName])
+    @investment.stockName = extractStockName(params[:stockName])
+    @investment.quantity = params[:quantity]
+    livePrice = getLivePrice(@investment.ticker).round(2)
     @investment.livePrice= livePrice
     @investment.buyingPrice = livePrice
     @investment.buyingDate = current_date
@@ -86,7 +87,7 @@ class InvestmentsController < ApplicationController
   private
 
   def investment_params
-    params.require(:investment).permit(:stockName,:ticker,:quantity)
+    params.require(:investment).permit(:stockName,:quantity)
   end
 
   def current_date
@@ -106,6 +107,14 @@ class InvestmentsController < ApplicationController
 
   def hundred
     100.00
+  end
+
+  def extractTicker(stock)
+    /.*\((.*)\)/.match(stock)[1]
+  end
+
+  def extractStockName(stock)
+    /(.*)\(.*\)/.match(stock)[1]
   end
 
 end

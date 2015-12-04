@@ -120,7 +120,7 @@
         </request>
         <request subst="true">
           <http url='/investments' version='1.1' method='POST'
-                contents='utf8=%E2%9C%93&amp;investment%5BstockName%5D=Yahoo&amp;investment%5Bticker%5D=YHOO&amp;investment%5Bquantity%5D=2&amp;commit=Create+Investment' ></http>
+                contents='utf8=%E2%9C%93&amp;stockName=Apple+Inc.%28AAPL%29&amp;quantity=10&amp;commit=Create+Investment' ></http>
         </request>
       </transaction>
 

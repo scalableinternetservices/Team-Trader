@@ -16,30 +16,36 @@
 		</div>
 		<% end %>
 
-		<form >
-			<div class="form-group">
-				<%= f.label :stockName %>
-				<br>
-				<%= f.text_field :stockName %>
-			</div>
 
-			<div class="form-group">
-				<%= f.label :ticker %>
-				<br>
-				<%= f.text_field :ticker %>
-			</div>
+          <form class="form-max-width" action="create">
+            <div class="form-group">
+              <label class="control-label" for="stockName">Stock Ticker:</label>
+              <input required type="text" id="stockName" name="stockName" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="quantity">Quantity</label>
+              <input required type="text" id="quantity" name="quantity" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Create Investment
+            </button>
+          </form>
 
-			<div class="form-group">
-				<%= f.label :quantity %>
-				<br>
-				<%= f.text_field :quantity %>
-			</div>
-			<div ></div>
-			<div class="actions">
-				<%= f.submit class: 'btn btn-primary' %>
-			</div>
-		</form>
+
 		<% end %>
 	</div>
 
 </div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#stockName').autocomplete({
+            serviceUrl: '/indices/hints',
+            deferRequestBy: 200
+        })
+
+
+    })
+</script>
