@@ -8,8 +8,8 @@
       Use Google Trends Terms to try to predict future stock prices.
     </p>
 
-      <% if flash[:notice]%>
-        <p class="notice">Error:<%= flash[:notice]%></p>
+      <% if flash[:notice].to_s.start_with?('ERROR')%>
+        <p class="notice"><%= flash[:notice]%></p>
       <% end %>
 
     <form class="form-max-width" action="show">

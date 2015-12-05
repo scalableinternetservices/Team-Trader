@@ -57,7 +57,7 @@ class GoogleTrendsStrategyController < ApplicationController
     update_search_history()
 
     if(!QuandlQuoteService.check_data_set_available(params[:stock_symbol], start_date, end_date))
-      redirect_to google_trends_strategy_index_url , :notice=>'Sorry, the stock you search is currently unavailable in database'
+      redirect_to google_trends_strategy_index_url , :notice=>'ERROR:Sorry, the stock you search is currently unavailable in database'
       return
     end
 
@@ -164,17 +164,17 @@ class GoogleTrendsStrategyController < ApplicationController
   private
   def validateAndExtractInput
     if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
-      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol is empty'
+      redirect_to google_trends_strategy_index_url, :notice=>'ERROR:Stock symbol is empty'
       return
     end
 
     if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
-      redirect_to google_trends_strategy_index_url, :notice=>'Trend is empty'
+      redirect_to google_trends_strategy_index_url, :notice=>'ERROR:Trend is empty'
       return
     end
 
     if ((/.*\((.*)\)/ =~ params[:stock_symbol]).nil?)
-      redirect_to google_trends_strategy_index_url, :notice=>'Stock symbol illegal. Format: Name(Symbol)'
+      redirect_to google_trends_strategy_index_url, :notice=>'ERROR:Stock symbol illegal. Format: Name(Symbol)'
       return
     end
 
