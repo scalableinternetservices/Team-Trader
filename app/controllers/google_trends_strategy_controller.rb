@@ -3,10 +3,8 @@ class GoogleTrendsStrategyController < ApplicationController
   before_action :validateAndExtractInput, only: :show
 
   def get_search_history(limit = 8)
-    ActiveRecord::Base.transaction do
       @term_records = TermSearchHistory.order('count DESC').limit(limit)
       @stock_records = StockSearchHistory.order('count DESC').limit(limit)
-    end
   end
   
   def get_stock_search_history(limit = 8)
@@ -34,10 +32,8 @@ class GoogleTrendsStrategyController < ApplicationController
     stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
     
-    ActiveRecord::Base.transaction do
       TermSearchHistory.where(term: trend_term).first_or_create.increment!(:count) 
       StockSearchHistory.where(stock: stock_symbol).first_or_create.increment!(:count)
-    end
   end
 
   def show
