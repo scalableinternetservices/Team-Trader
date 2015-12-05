@@ -3,22 +3,9 @@ class GoogleTrendsStrategyController < ApplicationController
   before_action :validateAndExtractInput, only: :show
 
   def get_search_history(limit = 8)
-    @term_records = TermSearchHistory.order('count DESC').limit(limit)
-    @stock_records = StockSearchHistory.order('count DESC').limit(limit)
-
-  end
-
-  def get_stock_search_history(limit = 8)
-    @stock_records = StockSearchHistory.all.order('count DESC').limit(limit)
-    respond_to do |format|
-      format.json { render json: @stock_records}
-    end
-  end
-
-  def get_term_search_history(limit = 8)
-    @term_records = TermSearchHistory.all.order('count DESC').limit(limit)
-    respond_to do |format|
-      format.json { render json: @term_records}
+    ActiveRecord::Base.transaction do
+      @term_records = TermSearchHistory.order('count DESC').limit(limit)
+      @stock_records = StockSearchHistory.order('count DESC').limit(limit)
     end
   end
 
@@ -27,24 +14,15 @@ class GoogleTrendsStrategyController < ApplicationController
   end
 
   def update_search_history
+    #might want to try this later
+    #http://stackoverflow.com/questions/14387022/atomic-insert-or-increment-in-activerecord-rails
+    
     stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
-
-    stockSearchRelation = StockSearchHistory.where(stock: stock_symbol)
-    termSearchRelation = TermSearchHistory.where(term: trend_term)
-
-    if stockSearchRelation.empty?
-      StockSearchHistory.create(stock: stock_symbol, count:1)
-    else
-      query_stock = stockSearchRelation.first
-      query_stock.increment!(:count)
-    end
-
-    if termSearchRelation.empty?
-      TermSearchHistory.create(term: trend_term, count:1)
-    else
-      query_term = termSearchRelation.first
-      query_term.increment!(:count)
+    
+    ActiveRecord::Base.transaction do
+      TermSearchHistory.where(term: trend_term).first_or_create.increment!(:count) 
+      StockSearchHistory.where(stock: stock_symbol).first_or_create.increment!(:count)
     end
   end
 
