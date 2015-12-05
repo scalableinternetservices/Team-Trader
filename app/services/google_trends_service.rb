@@ -42,9 +42,9 @@ class GoogleTrendsService
     
     def nid
       [
-        '72=dOq_sKa79YxKWqSsNtqkpSD4OzuljNH1L79xfwN-BVS4Av-HlE9guDkRlfsBe2t2Ooiby3mNCjie0JdZxnWNcPs8v2eW0qRnXofJvNCajJ2sSiTvLFVMWQSAahbgXbmJ',
-        '74=FzM5QkbxG76Vj8JIxAfNTDOKkdJ696-25jJiWS2DxO7jLK1PGrSnrc4dzPqE8BDO1o5y2_tClIm16xi-EisSM11Dy3gpipXd63qTiUq-y37A763XIuI3f9cgt9fpx0_31Us8flq-C_RY1mkn0lByT7VOweyKFfj6rQbraeX7pmIkh71TKw0BqJnPsqYcvH9KRh1c',
-        '74=aEbh5-sgUfDcdId0QS0yajdi09Xds1WNiltLZFtlDDm5jwo7NXjHPE6oLW_nNGLDLtfYkqoJlVAnE8RLHbo30ivVTcQkjnLfOFeDyJR5Th8jaRnWcB_EhFfd6R8NdMexxSiMXrFQvA2ECMoI8jXc66CmvIe7SjWl4QG-4ayPmpc_AzoHt7oi46-IOpTKlu6zGJkfQg'
+        '74=q_CY4jEIHGkS9jfL9IQND_2LgDMRgGpNpyTl3Jb_lTDBgyA0hX-J1_U75-4AX81iLh4OA_XR2W_J1jeQ31U6Vu6J0Ph3w6CDcU7ZanRZywKVICSFOdgCs9UC4G5v3QhDdw8cVYFFkPO3wr6vVB5YrBwqlTO7izuGM3o4vI1tsdrDKt6qBrk2RPGeBBTfa5Cjmi1VGg',
+        '74=y9aanhNF_8csqeQ51De0ekLMTwa3ktHCGT_Nxk6orMFsbOEFQi6zy7mm0hMYBnD8hJ2j_TDongAOBJ4JCx8Nj_Ca-sTczDMOk4Mn40IUPDWAn2te1ZNoy8WF8AHt4Gh3QHygim78PEI6oe6vjvsxRoxEFzhSWdQcz5VTxEkIyIDj7LQ5cmIAqAl3u4kbPX6tJA',
+        '74=vH4asjPxWW5xBfQFH-WEyprchodWGSF5TFs5TvC0J7Glmx6yjQPAWYs-UlpxLpCxqX_hFxZlIPOZn0DpvzE3wcElPccGahrHANhd-28H-tt6r-0zKgPPRCPigA0G66k97Drv-2g0BE69LRrdnsaI2FZZgk-Ef-wLKd1vI_iNUcAVgNevgKOJpbkCRBMJG0ePU70'
       ]
     end
     
