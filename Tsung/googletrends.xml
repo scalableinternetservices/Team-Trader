@@ -57,7 +57,7 @@
 			<!-- Hit the homepage -->
 			<transaction name = "debt">
 				<request>
-					<http url='/trends/fetchComponent?q=asdf&ampcid=TIMESERIES_GRAPH_0&ampexport=3&ampdate=today+3-m&ampgeo=US' version='1.1' method='GET'>
+					<http url='/trends/fetchComponent?q=asdf&amp;cid=TIMESERIES_GRAPH_0&amp;export=3&amp;date=today+3-m&amp;geo=US' version='1.1' method='GET'>
 						<add_cookie key="NID" value="74=yAj0VJDtq0QqUNqtk5spmks4lFeLIfa7aHqeS64DqegW7IfVRhG-C_sZhTeHenN-PcTllzpUTFGTCOAt5E9efXG0-GEodhb19-sc5W34K9L6R-tv70RX6AOFxg6r9UyCcmlel0kgPKXVtt5z3JbQgLa9Emgkff4k0q1c3ofmAJ-m6QkUQ7HA-cruzi-kWOmohli2"/>
 					</http>
 				</request>
