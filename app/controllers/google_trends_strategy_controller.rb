@@ -168,7 +168,7 @@ class GoogleTrendsStrategyController < ApplicationController
       return
     end
 
-    if (params[:stock_symbol].nil? || params[:stock_symbol] == '')
+    if (params[:trend_term].nil? || params[:trend_term] == '')
       redirect_to google_trends_strategy_index_url, :notice=>'ERROR:Trend is empty'
       return
     end
