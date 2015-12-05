@@ -5,10 +5,8 @@ class VolumeChartController < ApplicationController
   before_action :validateAndExtractInput, only: :show
 
   def get_search_history
-    @term_records = TermSearchHistory.all.order('count DESC').limit(8)
-    @stock_records = StockSearchHistory.all.order('count DESC').limit(8)
-
-    return @stock_records, @term_records
+    @term_records = TermSearchHistory.order('count DESC').limit(8)
+    @stock_records = StockSearchHistory.order('count DESC').limit(8)
   end
 
   def index
@@ -18,22 +16,10 @@ class VolumeChartController < ApplicationController
   def update_search_history
     stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
-
-    stockSearchRelation = StockSearchHistory.where(stock: stock_symbol)
-    termSearchRelation = TermSearchHistory.where(term: trend_term)
-
-    if stockSearchRelation.empty?
-      StockSearchHistory.create(stock: stock_symbol, count:1)
-    else
-      query_stock = stockSearchRelation.first
-      query_stock.increment!(:count)
-    end
-
-    if termSearchRelation.empty?
-      TermSearchHistory.create(term: trend_term, count:1)
-    else
-      query_term = termSearchRelation.first
-      query_term.increment!(:count)
+    
+    ActiveRecord::Base.transaction do
+      TermSearchHistory.where(term: trend_term).first_or_create.increment!(:count) 
+      StockSearchHistory.where(stock: stock_symbol).first_or_create.increment!(:count)
     end
   end
   
