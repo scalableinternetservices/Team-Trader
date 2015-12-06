@@ -1,7 +1,6 @@
-require 'CSV'
 class RandomDataGenerator
-
-  def self.generateUserAndPasswordCSV(numOfUser)
+  require 'csv'
+  def generateUserAndPasswordCSV(numOfUser)
     # @file = 'UsernamePasswordOld.csv'
     #Generate a lot of user in a CSV file
     @file =  '../assets/csv/UsernamePassword.csv'
@@ -13,7 +12,7 @@ class RandomDataGenerator
     end
   end
 
-  def self.createCompanyList
+  def createCompanyList
     @file =  '../assets/csv/CompanyList.csv'
     CSV.open(@file,'wb') do |csv|
       CSV.foreach('../assets/csv/AMEX.csv') do |row|
@@ -41,6 +40,4 @@ class RandomDataGenerator
       end
     end
   end
-  # generateUserAndPasswordCSV(10000)
-  # createCompanyList
 end
