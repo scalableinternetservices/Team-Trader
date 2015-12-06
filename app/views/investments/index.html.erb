@@ -53,9 +53,10 @@
 
           </tr>
           </thead>
-
+          <% cache(cache_key_for_investments(@investments)) do %>
           <tbody>
           <% @investments.each do |investment| %>
+            <% cache(cache_key_for_investment(investment)) do %>
               <tr>
                 <!-- Lets dynamically add the labels red or green here -->
                 <td><%= investment.stockName %> (<%= investment.ticker %>)</td>
@@ -68,6 +69,8 @@
                 <td><%= investment.totalInvestments  %></td>
                 <td><%= investment.totalValue  %></td>
               </tr>
+            <% end %>
+          <% end %>
           <% end %>
 
           </tbody>
