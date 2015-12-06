@@ -40,7 +40,6 @@
 	</options>
 	<sessions>
 		<session name="http-example" probability="100" type="ts_http">
-
 			<transaction name = "trend_strategy">
 				<request>
 					<http url='/google_trends_strategy/show?trend_term=debt&amp;stock_symbol=Apple%20Inc.(AAPL)' version='1.1' method='GET'></http>
@@ -50,3 +49,4 @@
 		</session>
 	</sessions>
 </tsung>
+
