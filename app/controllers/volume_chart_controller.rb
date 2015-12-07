@@ -73,8 +73,8 @@ class VolumeChartController < ApplicationController
 
     @trend_labels = @trend_labels.drop(delta_t)
 
-    puts @volume_values
-    puts @trend_data
+    #puts @volume_values
+    #puts @trend_data
 
     @stock_info = Index.find_by(symbol:params[:stock_symbol])
 
