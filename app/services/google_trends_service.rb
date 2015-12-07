@@ -49,7 +49,6 @@ class GoogleTrendsService
     end
     
     def get_data(url)
-      puts url
       Rails.cache.fetch(url, :expires =>12.hours) do
         response = RestClient.get(url, {'Cache-Control' => 'max-age=0', :cookies=>cook })
         GoogleTrendsParser.parse(response)
