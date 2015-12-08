@@ -17,8 +17,10 @@ class VolumeChartController < ApplicationController
     stock_symbol = params[:stock_symbol]
     trend_term = params[:trend_term].downcase
     
+    ActiveRecord::Base.transaction do
       TermSearchHistory.where(term: trend_term).first_or_create.increment!(:count) 
       StockSearchHistory.where(stock: stock_symbol).first_or_create.increment!(:count)
+    end
   end
   
   def show
