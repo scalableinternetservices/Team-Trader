@@ -42,7 +42,7 @@ class QuandlQuoteService
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_keys.sample, 'Cache-Control' => 'max-age=0'}}
       request_url = url(stock_symbol)
       cache_key = request_url + '-' + start_date + '-' + end_date
-      Rails.cache.fetch(cache_key, :expires =>12.hours) do
+      Rails.cache.fetch(cache_key, :expires_in =>12.hours) do
         response = RestClient.get(request_url,params)
         json = JSON.parse(response)
         data = json['dataset']['data']
@@ -53,7 +53,7 @@ class QuandlQuoteService
       params = {:params => {'start_date'=> start_date, 'end_date'=> end_date, 'collapse'=> 'daily', 'api_key'=>api_keys.sample, 'Cache-Control' => 'max-age=0'}}
       request_url = url(stock_symbol)
       cache_key = request_url + '-' + start_date + '-' + end_date
-      Rails.cache.fetch(cache_key, :expires =>12.hours) do
+      Rails.cache.fetch(cache_key, :expires_in =>12.hours) do
         begin
           response = RestClient.get(request_url,params)
           json = JSON.parse(response)
