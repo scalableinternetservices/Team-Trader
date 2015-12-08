@@ -27,12 +27,11 @@ ActiveRecord::Base.transaction do
   end
 end
 
-
 TermSearchHistory.delete_all
 
-ActiveRecord::Base.transaction do
-  CSV.foreach(Rails.root.join('app','assets','csv','20kwords.csv')) do |row|
-    TermSearchHistory.create(term: row[0], count: Random.rand(100) +  1)
-  end
-end
+#ActiveRecord::Base.transaction do
+#  CSV.foreach(Rails.root.join('app','assets','csv','wordsalph.csv')) do |row|
+#    TermSearchHistory.create(term: row[0], count: Random.rand(100) +  1)
+#  end
+#end
 

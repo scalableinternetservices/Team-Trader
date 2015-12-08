@@ -6,11 +6,11 @@
 <div style="width:800px; margin:0 auto;">
 	<div class="row" style="background-color:rgba(220,220,220,1); color:white; text-align: center;">
         <div class="col-md-8"><h2>Google Trends Strategy</h2></div>
-        <div class="col-md-4"><h2>x<%= number_with_precision(@gt_ret[-1], :precision => 3) %></h2></div>
+        <div class="col-md-4"><h2>x<%= number_with_precision(@gt_ret[-2], :precision => 3) %></h2></div>
       </div>
       <div class="row"  style="background-color:rgba(151,187,205,1); color:white; text-align: center;">
         <div class="col-md-8"><h2>Buy & Hold Strategy</h2></div>
-        <div class="col-md-4"><h2>x<%= number_with_precision(@bh_ret[-1], :precision => 3) %></h2></div>
+        <div class="col-md-4"><h2>x<%= number_with_precision(@bh_ret[-2], :precision => 3) %></h2></div>
       </div>
 </div>
 <div style="width:800px; margin:0 auto;">

@@ -5,5 +5,5 @@ one:
   count: 1
 
 two:
-  term: MyString
+  term: MyString2
   count: 1

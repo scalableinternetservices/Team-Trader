@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111070822) do
+ActiveRecord::Schema.define(version: 20151205011901) do
 
   create_table "indices", force: :cascade do |t|
     t.string   "symbol"
@@ -53,12 +53,18 @@ ActiveRecord::Schema.define(version: 20151111070822) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "stock_search_histories", ["count"], name: "index_stock_search_histories_on_count"
+  add_index "stock_search_histories", ["stock"], name: "index_stock_search_histories_on_stock", unique: true
+
   create_table "term_search_histories", force: :cascade do |t|
     t.string   "term"
     t.integer  "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "term_search_histories", ["count"], name: "index_term_search_histories_on_count"
+  add_index "term_search_histories", ["term"], name: "index_term_search_histories_on_term", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
