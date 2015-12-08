@@ -31,14 +31,15 @@ class VolumeChartController < ApplicationController
     params[:start_date] = start_date
     params[:end_date] = end_date
 
-    if(!QuandlQuoteService.check_data_set_available(params[:stock_symbol], start_date, end_date))
+    @date_close_hash = QuandlQuoteService.getDateCloseHashWith(params[:stock_symbol], start_date, end_date)
+    if(!@date_close_hash)
       redirect_to google_trends_strategy_index_url , :notice=>'ERROR:Sorry, the stock you search is currently unavailable in database'
       return
     end
 
     update_search_history()
 
-    @date_close_hash = QuandlQuoteService.getHistoricalVolume(params)
+    #@date_close_hash = QuandlQuoteService.getHistoricalVolume(params)
 
     @trend_data = GoogleTrendsService.getMonths(params[:trend_term], 12)
 

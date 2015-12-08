@@ -44,7 +44,8 @@ class GoogleTrendsStrategyController < ApplicationController
 
     update_search_history()
 
-    if(!QuandlQuoteService.check_data_set_available(params[:stock_symbol], start_date, end_date))
+    @date_close_hash = QuandlQuoteService.getDateCloseHashWith(params[:stock_symbol], start_date, end_date)
+    if(!@date_close_hash)
       redirect_to google_trends_strategy_index_url , :notice=>'ERROR:Sorry, the stock you search is currently unavailable in database'
       return
     end
@@ -55,7 +56,7 @@ class GoogleTrendsStrategyController < ApplicationController
     @values = trend_data.values
     rel_search = get_array_of_relative_search @values
 
-    @date_close_hash = QuandlQuoteService.getDateCloseHash(params[:stock_symbol], start_date, end_date)
+    #@date_close_hash = QuandlQuoteService.getDateCloseHash(params[:stock_symbol], start_date, end_date)
 
     @bh_ret = Array.new(@labels.size,1)
     @gt_ret = Array.new(@labels.size,1)
