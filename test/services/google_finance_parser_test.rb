@@ -1,0 +1,28 @@
+require '../test_helper'
+
+class GoogleFinanceParserTest < ActiveSupport::TestCase
+  def test_parse
+    result = GoogleFinanceParser.parse(data1)
+    assert_equal expected1, result
+  end
+
+  def data1
+    'EXCHANGE%3DNASDAQ
+MARKET_OPEN_MINUTE=570
+MARKET_CLOSE_MINUTE=960
+INTERVAL=60
+COLUMNS=DATE,CLOSE,HIGH,LOW,OPEN,VOLUME
+DATA=
+TIMEZONE_OFFSET=-300
+a1449585000,117.32,117.56,117.32,117.52,353621
+1,117.37,117.519,117.13,117.32,192229
+2,117.4097,117.58,117.29,117.36,131705
+389,118.38,118.4,118.21,118.21,423173
+390,118.23,118.51,118.22,118.38,3086562'
+  end
+  
+  def expected1
+    {1449585000=>117.32, 1449585060=>117.37, 1449585120=>117.4097, 1449608340=>118.38, 1449608400=>118.23}
+  end
+  
+end
