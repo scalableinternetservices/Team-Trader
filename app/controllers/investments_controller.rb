@@ -24,7 +24,6 @@ class InvestmentsController < ApplicationController
     Integer i =0;
 
     while true do
-
       start_date = date(i+1)
       end_date = date(i)
 
@@ -45,7 +44,34 @@ class InvestmentsController < ApplicationController
       return 0.0;
       end
     end
+  end
 
+
+  def getBeforePrice(stock_symbol)
+
+    Integer i =0;
+
+    while true do
+      start_date = date(i+30)
+      end_date = date(i+29)
+
+      @result_data = QuandlQuoteService.getDataArray(stock_symbol, start_date, end_date)
+      @values = Array.new
+
+      @result_data.each do |val|
+        @values.insert(0,val[4])
+      end
+
+      if @values[0] !=nil
+        return @values[0]
+      end
+
+      i = i+1;
+
+      if i>2
+        return 0.0;
+      end
+    end
   end
 
   def create
@@ -55,8 +81,8 @@ class InvestmentsController < ApplicationController
     @investment.quantity = params[:quantity]
     livePrice = getLivePrice(@investment.ticker).round(2)
     @investment.livePrice= livePrice
-    @investment.buyingPrice = livePrice
-    @investment.buyingDate = current_date
+    @investment.buyingPrice =  getBeforePrice(@investment.ticker).round(2)
+    @investment.buyingDate = date(2)
     @investment.overallGain = ((livePrice - @investment.buyingPrice)*@investment.quantity).round(2)
     @investment.totalValue =  (livePrice*@investment.quantity).round(2)
     @investment.totalInvestments =  (@investment.buyingPrice*@investment.quantity).round(2)
