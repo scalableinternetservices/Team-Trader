@@ -1,7 +1,6 @@
 # TRADER: A WEB SERVICE FOR SMART TRADING INDICATORS  
 
 [![Build Status](https://api.travis-ci.org/scalableinternetservices/teamtrader.svg)](https://travis-ci.org/scalableinternetservices/teamtrader)
-[![Code Climate](https://codeclimate.com/github/scalableinternetservices/Team-Trader/badges/gpa.svg)](https://codeclimate.com/github/scalableinternetservices/Team-Trader)
 [![Pivotal Tracker](http://img.shields.io/badge/Pivotal-Tracker-blue.svg)](https://www.pivotaltracker.com/n/projects/1445314)  
 
 ##Pivotal Tracker Link
